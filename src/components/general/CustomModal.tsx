@@ -23,9 +23,9 @@ const CustomModal = (props: CustomModalProps) => {
   const { isOpen, onClose, title, children } = props;
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} size={"xl"}>
         <ModalOverlay />
-        <ModalContent bg={"none"}>
+        <ModalContent bg={"black"}>
           <ModalHeader>{title}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>{children}</ModalBody>

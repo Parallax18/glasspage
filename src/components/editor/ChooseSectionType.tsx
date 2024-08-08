@@ -1,53 +1,97 @@
-import { Box, Center, Flex, HStack, Stack, Text } from "@chakra-ui/react";
-import React from "react";
+"use client";
 
-const sections = ["Hero", "Pricing", "Grid", "List", "Cards", "Custom"];
+import { Section, sections, Template } from "@/static/sections";
+import { Box, Flex, HStack, Stack, Text } from "@chakra-ui/react";
 
-export const SectionOption = ({ name }: { name: string }) => {
+import React, { useState } from "react";
+
+export const SectionOption = ({
+  name,
+  onClick,
+}: {
+  name: string;
+  onClick: () => void;
+}) => {
   return (
-    <Stack
-      height={"32"}
-      w={"full"}
-      bg={"black"}
-      padding={2}
-      rounded={"base"}
-      cursor={"pointer"}
-    >
-      <Flex gap={2} h={"60%"} w={"full"}>
-        <Box bg={"dark"} h={"full"} w={"full"} rounded={"base"} />
-      </Flex>
-      <Text
-        fontSize={"sm"}
-        color={"yellow.400"}
-        textAlign={"center"}
-        fontWeight={"semibold"}
+    <>
+      <Stack
+        onClick={onClick}
+        height={"32"}
+        w={"full"}
+        bg={"black"}
+        padding={2}
+        rounded={"base"}
+        cursor={"pointer"}
       >
-        {name}
-      </Text>
-    </Stack>
+        <Flex gap={2} h={"60%"} w={"full"}>
+          <Box bg={"dark"} h={"full"} w={"full"} rounded={"base"} />
+        </Flex>
+        <Text
+          fontSize={"sm"}
+          color={"yellow.400"}
+          textAlign={"center"}
+          fontWeight={"semibold"}
+        >
+          {name}
+        </Text>
+      </Stack>
+    </>
   );
 };
 
-const ChooseSectionType = () => {
+const ChooseSectionType = ({
+  onSelectSectionTemplate,
+}: {
+  onSelectSectionTemplate: (section: Template) => void;
+}) => {
+  const [currentViewingSection, setCurrentViewingSection] = useState<Section>(
+    sections[0]
+  );
   return (
-    // <Center>
-    <Flex
-      rounded={"base"}
-      alignItems="center"
-      justifyContent="space-between"
-      // bg="rgba(255, 255, 255, 0.3)" // Set the background color with opacity for the blur effect
-      // backdropFilter="blur(8px)"
-      // boxShadow={"lg"}
-      // px={2}
-      py={2}
-    >
-      <HStack spacing={2} w={"full"} padding={2}>
-        {sections.map((section) => (
-          <SectionOption key={section} name={section} />
-        ))}
-      </HStack>
+    <Flex>
+      <Stack w={"full"}>
+        <HStack spacing={2} w={"full"}>
+          {sections.map((section) => (
+            <SectionOption
+              name={section.name}
+              key={section.name}
+              onClick={() => {
+                setCurrentViewingSection(section);
+              }}
+            />
+          ))}
+        </HStack>
+
+        <Flex w={"full"} gap={2}>
+          {sections
+            .find((item) => item.name === currentViewingSection?.name)
+            ?.templates.map((template) => (
+              <Stack
+                rounded={"base"}
+                key={template.id}
+                height={"64"}
+                bg={"black"}
+                p={2}
+                w={"full"}
+                cursor={"pointer"}
+                onClick={() => onSelectSectionTemplate(template)}
+              >
+                <Flex gap={2} h={"60%"} w={"full"}>
+                  <Box bg={"dark"} h={"full"} w={"full"} rounded={"base"} />
+                </Flex>
+                <Text
+                  fontSize={"sm"}
+                  color={"yellow.400"}
+                  textAlign={"center"}
+                  fontWeight={"semibold"}
+                >
+                  {template.name}
+                </Text>
+              </Stack>
+            ))}
+        </Flex>
+      </Stack>
     </Flex>
-    // </Center>
   );
 };
 
