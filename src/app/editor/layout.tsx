@@ -50,7 +50,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     <FormProvider {...form}>
       <EditorProvider>
         <chakra.form>
-          <EditorBar />
+          {/* <EditorBar /> */}
           {children}
         </chakra.form>
       </EditorProvider>

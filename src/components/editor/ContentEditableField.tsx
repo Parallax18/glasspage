@@ -18,6 +18,7 @@ interface ContentEditableFieldProps {
   inputFontSize: string;
   inputMinHeight?: string;
   name: string;
+  placeholder?: string;
 }
 
 const ContentEditableField = (props: ContentEditableFieldProps) => {
@@ -37,12 +38,16 @@ const ContentEditableField = (props: ContentEditableFieldProps) => {
     <Editable
       as={as}
       defaultValue={defaultValue}
+      placeholder={props.placeholder}
       isDisabled={canNotEdit}
       isPreviewFocusable={true}
       selectAllOnFocus={false}
       {...editableWrapperStyleProps}
       padding={0}
       m={0}
+      _placeholder={{
+        color: "gray.200",
+      }}
       onClick={() => setEditingElement(props.name)}
     >
       <Tooltip

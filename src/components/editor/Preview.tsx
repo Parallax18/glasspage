@@ -18,6 +18,7 @@ const Preview = () => {
       px="10%"
       bg={pageStyles.bgColor}
       py={"3rem"}
+      pt={"5rem"}
     >
       <Flex
         padding={"1rem"}
