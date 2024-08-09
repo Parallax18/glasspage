@@ -1,5 +1,6 @@
 import SimpleColumnGrid from "@/components/templates/features/simple-column-grid";
 import SimpleFooterWithLogo from "@/components/templates/footer/SimpleFooterWithLogo";
+import CallToActionWithAnnotation from "@/components/templates/hero/cta-with-anotation";
 import SplitScreenWithImage from "@/components/templates/hero/split-screen-with-image";
 import ThreeTierPricingWithEmphasizedTier from "@/components/templates/pricing/three-tiers-with-emphasized-tier";
 import WithLargeQuote from "@/components/templates/testimonials/with-large-quote";
@@ -26,7 +27,11 @@ export const sections = [
         name: "Split screen with image",
         Component: SplitScreenWithImage,
       },
-      { id: "hero-2", name: "Image Hero", Component: SplitScreenWithImage },
+      {
+        id: "hero-2",
+        name: "CTA with annotation",
+        Component: CallToActionWithAnnotation,
+      },
       {
         id: "hero-3",
         name: "Another hero section",

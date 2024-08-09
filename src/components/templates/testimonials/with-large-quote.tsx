@@ -5,7 +5,7 @@ import { Avatar, Box, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 export default function WithLargeQuote() {
   return (
     <Stack
-      bg={useColorModeValue("gray.50", "gray.800")}
+      // bg={useColorModeValue("gray.50", "gray.800")}
       py={16}
       px={8}
       spacing={{ base: 8, md: 10 }}
