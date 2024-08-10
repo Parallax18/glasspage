@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Flex,
   Text,
@@ -20,20 +20,33 @@ import { DragHandleIcon, EditIcon } from "@chakra-ui/icons";
 import { BiTrash } from "react-icons/bi";
 import { BsDash } from "react-icons/bs";
 import { IComponent } from "@/types/schema";
+import { useFieldArray, useFormContext } from "react-hook-form";
+import { EditorForm } from "@/app/editor/page";
 
 interface AddedSectionSidePaneProps {
-  addedTemplates: IComponent[];
-  deleteSection: (section: IComponent) => void;
   level?: number;
 }
 
 const AddedSections = (props: AddedSectionSidePaneProps) => {
-  const { addedTemplates, deleteSection, level = 0 } = props;
+  const { level = 0 } = props;
+  const form = useFormContext<EditorForm>();
+  const {
+    fields: addedTemplates,
+    append: selectTemplate,
+    remove: deleteSection,
+    update,
+  } = useFieldArray({
+    control: form.control,
+    name: "page",
+  });
+  useEffect(() => {
+    console.log({ addedTemplates });
+  }, [addedTemplates]);
 
   return (
     <Stack spacing={4}>
       {addedTemplates.map((template, index) => (
-        <Stack key={template.id || template.name + index} px={2}>
+        <Stack key={template.id} px={2}>
           <Menu closeOnSelect={false}>
             <Flex
               w={"full"}
@@ -98,7 +111,7 @@ const AddedSections = (props: AddedSectionSidePaneProps) => {
                       <IconButton
                         aria-label="confirm delete action"
                         bg={"none"}
-                        onClick={() => deleteSection(template)}
+                        onClick={() => deleteSection()}
                         icon={
                           <Text color={"green"} fontSize={"xs"}>
                             Confirm
@@ -125,15 +138,14 @@ const AddedSections = (props: AddedSectionSidePaneProps) => {
               </Popover>
             </MenuList>
           </Menu>
-
-          {/* Recursive rendering for children */}
+          {/* 
           {template.children && template.children.length > 0 && (
             <AddedSections
-              addedTemplates={template.children}
-              deleteSection={deleteSection}
+              // addedTemplates={template.children}
+              // deleteSection={deleteSection}
               level={level + 1} // Increment the level for children
             />
-          )}
+          )} */}
         </Stack>
       ))}
     </Stack>

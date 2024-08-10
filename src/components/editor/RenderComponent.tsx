@@ -35,6 +35,7 @@ const RenderComponent = (component: IComponent) => {
   const StyledComponent = chakra(Component, {
     baseStyle: component.styles,
   });
+
   return (
     <>
       {component.type === "image" || component.type === "text-input" ? (

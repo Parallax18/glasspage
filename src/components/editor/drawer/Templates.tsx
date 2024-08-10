@@ -16,11 +16,10 @@ import {
   AccordionIcon,
 } from "@chakra-ui/react";
 
-import React, { useState } from "react";
+import React from "react";
 
 export const TemplateCategory = ({
   name,
-
   templates,
   onSelectTemplate,
 }: {
@@ -98,9 +97,6 @@ const TemplatesDrawer = ({
 }: {
   onSelectTemplate: (section: IComponent) => void;
 }) => {
-  const [currentViewingSection, setCurrentViewingSection] = useState(
-    templates[0]
-  );
   const groupTemplatesByCategory = () => {
     return templates.reduce((acc, template) => {
       // If the category doesn't exist in the accumulator, create it
@@ -109,6 +105,8 @@ const TemplatesDrawer = ({
       }
 
       // Add the current template to the relevant category
+      // TODO: FIX THIS!!!
+      // @ts-ignore
       acc[template.category].push(template);
 
       return acc;

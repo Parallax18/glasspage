@@ -1,25 +1,31 @@
 "use client";
 
 import EditorDrawer from "@/components/editor/drawer";
-import TestCta from "@/components/editor/RenderComponent";
+import RenderComponent from "@/components/editor/RenderComponent";
 import { IComponent } from "@/types/schema";
 
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Stack,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, Text, useDisclosure } from "@chakra-ui/react";
 import React, { memo, useState } from "react";
+import {
+  Form,
+  FormProvider,
+  useFieldArray,
+  useForm,
+  useWatch,
+} from "react-hook-form";
+
+export interface EditorForm {
+  page: IComponent[];
+}
 
 const Editor = () => {
   const { onClose, isOpen, onOpen } = useDisclosure();
+  const form = useForm<EditorForm>({ defaultValues: { page: [] } });
 
-  const [onScreenSectionTemplates, setOnScreenSectionTemplates] = useState<
-    IComponent[]
-  >([]);
+  const onScreenSectionTemplates = useWatch({
+    control: form.control,
+    name: "page",
+  });
 
   return (
     <Box>
@@ -34,21 +40,20 @@ const Editor = () => {
         </Button>
       </Flex>
 
-      <Box color={"white"}>
-        <Box>
-          {onScreenSectionTemplates?.map((section, index) => {
-            const MemoizedComponent = memo(TestCta);
+      <FormProvider {...form}>
+        <Form>
+          <Box color={"white"}>
+            {onScreenSectionTemplates.map((section, index) => {
+              console.log({ section });
+              const MemoizedComponent = memo(RenderComponent);
 
-            return <MemoizedComponent key={section.name} {...section} />;
-          })}
-        </Box>
-      </Box>
-      <EditorDrawer
-        onClose={onClose}
-        isOpen={isOpen}
-        selectedTemplates={onScreenSectionTemplates}
-        selectTemplate={setOnScreenSectionTemplates}
-      />
+              return <MemoizedComponent key={index} {...section} />;
+            })}
+          </Box>
+
+          <EditorDrawer onClose={onClose} isOpen={isOpen} />
+        </Form>
+      </FormProvider>
     </Box>
   );
 };

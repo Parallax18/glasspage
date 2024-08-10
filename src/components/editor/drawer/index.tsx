@@ -7,31 +7,34 @@ import {
   Heading,
   Text,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TemplatesDrawer from "./Templates";
 import AddedSections from "./AddedSections";
 import ComponentsDrawer from "./Components";
 import ElementsDrawer from "./Elements";
 import { IComponent } from "@/types/schema";
+import { useFieldArray, useFormContext } from "react-hook-form";
 
 export type EditorDrawerViews =
   | "sections"
   | "templates"
   | "elements"
   | "components";
-interface EditorDrawer extends Omit<SideDrawerProps, "title" | "children"> {
-  selectedTemplates: IComponent[];
-  selectTemplate: React.Dispatch<React.SetStateAction<IComponent[]>>;
-}
+interface EditorDrawer extends Omit<SideDrawerProps, "title" | "children"> {}
 
 const EditorDrawer = (props: EditorDrawer) => {
-  const { isOpen, onClose, selectTemplate, selectedTemplates } = props;
+  const { isOpen, onClose } = props;
   const [currentEditorDrawerView, setCurrentEditorDrawerView] =
     useState<EditorDrawerViews>("templates");
+  const form = useFormContext();
+  const { fields: selectedTemplates, append: selectTemplate } = useFieldArray({
+    control: form.control,
+    name: "page",
+  });
+  useEffect(() => {
+    console.log({ selectedTemplates });
+  }, [selectedTemplates]);
 
-  const handleSelectSection = (sectionTemplate: IComponent) => {
-    selectTemplate([...selectedTemplates, sectionTemplate]);
-  };
   const handleDeleteSection = (sectionTemplate: IComponent) => {
     console.log(sectionTemplate);
     const remainingSections = selectedTemplates.filter(
@@ -43,16 +46,11 @@ const EditorDrawer = (props: EditorDrawer) => {
   const views = {
     templates: {
       header: "Templates",
-      component: <TemplatesDrawer onSelectTemplate={handleSelectSection} />,
+      component: <TemplatesDrawer onSelectTemplate={selectTemplate} />,
     },
     sections: {
       header: "Sections",
-      component: (
-        <AddedSections
-          addedTemplates={selectedTemplates}
-          deleteSection={handleDeleteSection}
-        />
-      ),
+      component: <AddedSections />,
     },
     components: { header: "Components", component: <ComponentsDrawer /> },
 

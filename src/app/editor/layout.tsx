@@ -45,17 +45,8 @@ const InitialValues = {
 };
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  const form = useForm({ defaultValues: InitialValues });
-  return (
-    <FormProvider {...form}>
-      <EditorProvider>
-        <chakra.form>
-          {/* <EditorBar /> */}
-          {children}
-        </chakra.form>
-      </EditorProvider>
-    </FormProvider>
-  );
+  // const form = useForm({ defaultValues: InitialValues });
+  return <EditorProvider>{children}</EditorProvider>;
 };
 
 export default Layout;
