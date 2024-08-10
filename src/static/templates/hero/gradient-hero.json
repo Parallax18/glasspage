@@ -1,0 +1,140 @@
+{
+  "name": "Gradient Hero",
+  "category": "Hero",
+  "type": "card",
+  "styles": {
+    "w": "full",
+    "py": { "base": 12, "md": 24, "lg": 32 },
+    "bgGradient": "linear(to-r, #6366F1, #EC4899)"
+  },
+  "Component": "Box",
+  "level": 0,
+  "componentType": "block",
+  "id": "gradient-hero",
+  "children": [
+    {
+      "id": "container",
+      "type": "card",
+      "styles": {
+        "display": "grid",
+        "alignItems": "center",
+        "gap": { "base": 6, "lg": 10 },
+        "px": { "base": 4, "md": 6 },
+        "gridTemplateColumns": { "lg": "1fr 1fr" }
+      },
+      "Component": "Box",
+      "level": 1,
+      "componentType": "block",
+      "children": [
+        {
+          "id": "text-content",
+          "type": "card",
+          "styles": { "spaceY": 4 },
+          "Component": "Box",
+          "level": 2,
+          "componentType": "block",
+          "children": [
+            {
+              "id": "heading",
+              "type": "text",
+              "styles": {
+                "fontSize": { "base": "4xl", "sm": "5xl", "md": "6xl" },
+                "fontWeight": "bold",
+                "tracking": "tight",
+                "color": "white"
+              },
+              "Component": "Heading",
+              "innerText": "Unlock Your Team's Full Potential",
+              "level": 3,
+              "componentType": "element"
+            },
+            {
+              "id": "description",
+              "type": "text",
+              "styles": {
+                "maxW": "600px",
+                "color": "white",
+                "fontSize": { "md": "xl", "lg": "base", "xl": "xl" },
+                "lineHeight": "relaxed"
+              },
+              "Component": "Text",
+              "innerText": "Our SaaS platform empowers your team to collaborate seamlessly, streamline workflows, and drive innovation.",
+              "level": 3,
+              "componentType": "element"
+            },
+            {
+              "id": "button-group",
+              "type": "card",
+              "styles": {
+                "direction": { "base": "column", "minW": "400px", "md": "row" },
+                "gap": 2
+              },
+              "Component": "Flex",
+              "level": 3,
+              "componentType": "block",
+              "children": [
+                {
+                  "id": "sign-up-button",
+                  "type": "button",
+                  "styles": {
+                    "rounded": "md",
+                    "bg": "white",
+                    "color": "#6366F1",
+                    "h": 10,
+                    "px": 8,
+                    "fontSize": "sm",
+                    "fontWeight": "medium",
+                    "shadow": "md",
+                    "transition": "background-color 0.2s",
+                    "_hover": { "bg": "whiteAlpha.900" },
+                    "_focusVisible": {
+                      "outline": "none",
+                      "ring": 1,
+                      "ringColor": "ring"
+                    },
+                    "_disabled": { "pointerEvents": "none", "opacity": 0.5 }
+                  },
+                  "attributes": { "type": "button", "href": "#" },
+                  "Component": "Button",
+                  "innerText": "Sign Up",
+                  "level": 4,
+                  "componentType": "element"
+                },
+                {
+                  "id": "learn-more-button",
+                  "type": "button",
+                  "styles": {
+                    "rounded": "md",
+                    "border": "1px solid",
+                    "borderColor": "#EC4899",
+                    "bg": "transparent",
+
+                    "h": 10,
+                    "px": 8,
+                    "fontSize": "sm",
+                    "fontWeight": "medium",
+                    "shadow": "sm",
+                    "color": "white",
+                    "transition": "background-color 0.2s",
+                    "_hover": { "bg": "#EC4899", "color": "white" },
+                    "_focusVisible": {
+                      "outline": "none",
+                      "ring": 1,
+                      "ringColor": "ring"
+                    },
+                    "_disabled": { "pointerEvents": "none", "opacity": 0.5 }
+                  },
+                  "attributes": { "type": "button", "href": "#" },
+                  "Component": "Button",
+                  "level": 4,
+                  "componentType": "element",
+                  "innerText": "Learn more"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

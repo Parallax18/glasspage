@@ -1,7 +1,7 @@
 "use client";
 
-import EditorDrawer, { EditorDrawerViews } from "@/components/editor/drawer";
-import TestCta from "@/components/templates/hero/cta-with-annotation/test-cta";
+import EditorDrawer from "@/components/editor/drawer";
+import TestCta from "@/components/editor/RenderComponent";
 import { IComponent } from "@/types/schema";
 
 import {
@@ -35,9 +35,8 @@ const Editor = () => {
       </Flex>
 
       <Box color={"white"}>
-        <Box paddingX={"3%"}>
+        <Box>
           {onScreenSectionTemplates?.map((section, index) => {
-            console.log({ section });
             const MemoizedComponent = memo(TestCta);
 
             return <MemoizedComponent key={section.name} {...section} />;

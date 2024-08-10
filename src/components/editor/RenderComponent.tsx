@@ -1,9 +1,8 @@
 import React from "react";
-import CtaWithAnnotationData from "./cta-with-annotation.json";
+
 import {
   Box,
   Button,
-  Center,
   Flex,
   HStack,
   Heading,
@@ -28,7 +27,7 @@ const componentMap: Record<string, React.ComponentType<any>> = {
   Image,
 };
 
-export function RenderElement({ component }: { component: IComponent }) {
+const RenderComponent = (component: IComponent) => {
   const Component = componentMap[component.Component];
 
   if (!Component) return null;
@@ -36,7 +35,6 @@ export function RenderElement({ component }: { component: IComponent }) {
   const StyledComponent = chakra(Component, {
     baseStyle: component.styles,
   });
-
   return (
     <>
       {component.type === "image" || component.type === "text-input" ? (
@@ -47,21 +45,13 @@ export function RenderElement({ component }: { component: IComponent }) {
           {component.children &&
             component.children?.map((childElement) => {
               return (
-                <RenderElement key={childElement.id} component={childElement} />
+                <RenderComponent key={childElement.id} {...childElement} />
               );
             })}
         </StyledComponent>
       )}
     </>
   );
-}
-
-const TestCta = (props) => {
-  return (
-    <Center>
-      <RenderElement key={props.name} component={props} />
-    </Center>
-  );
 };
 
-export default TestCta;
+export default RenderComponent;

@@ -3,8 +3,9 @@
   "category": "Hero",
   "type": "card",
   "styles": {
-    "maxW": "3xl",
     "textAlign": "center",
+    "justifyContent": "center",
+    "alignItems": "center",
     "gap": { "base": 8, "md": 3 },
     "py": { "base": 20, "md": 36 }
   },
@@ -45,7 +46,8 @@
       "id": "description",
       "type": "text",
       "styles": {
-        "color": "gray.500"
+        "color": "gray.500",
+        "maxW": "3xl"
       },
       "attributes": { "as": "p" },
       "Component": "Text",

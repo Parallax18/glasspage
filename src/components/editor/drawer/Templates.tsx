@@ -1,6 +1,7 @@
 "use client";
 
-import { Template, templates } from "@/static/templates";
+import { templates } from "@/static/templates";
+import { IComponent } from "@/types/schema";
 
 import {
   Box,
@@ -24,8 +25,8 @@ export const TemplateCategory = ({
   onSelectTemplate,
 }: {
   name: string;
-  templates?: Template[];
-  onSelectTemplate: (section: Template) => void;
+  templates?: IComponent[];
+  onSelectTemplate: (section: IComponent) => void;
 }) => {
   return (
     <>
@@ -95,7 +96,7 @@ export const TemplateCategory = ({
 const TemplatesDrawer = ({
   onSelectTemplate,
 }: {
-  onSelectTemplate: (section: Template) => void;
+  onSelectTemplate: (section: IComponent) => void;
 }) => {
   const [currentViewingSection, setCurrentViewingSection] = useState(
     templates[0]
@@ -111,7 +112,7 @@ const TemplatesDrawer = ({
       acc[template.category].push(template);
 
       return acc;
-    }, {} as Record<string, Template[]>);
+    }, {} as Record<string, IComponent[]>);
   };
   return (
     <Flex>
