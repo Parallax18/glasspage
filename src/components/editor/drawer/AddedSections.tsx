@@ -39,9 +39,6 @@ const AddedSections = (props: AddedSectionSidePaneProps) => {
     control: form.control,
     name: "page",
   });
-  useEffect(() => {
-    console.log({ addedTemplates });
-  }, [addedTemplates]);
 
   return (
     <Stack spacing={4}>

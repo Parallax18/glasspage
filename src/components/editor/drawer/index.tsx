@@ -1,18 +1,10 @@
 import SideDrawer, { SideDrawerProps } from "@/components/general/SideDrawer";
-import {
-  Box,
-  Button,
-  DrawerFooter,
-  Flex,
-  Heading,
-  Text,
-} from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import { Box, Button, Flex, Heading } from "@chakra-ui/react";
+import React, { useState } from "react";
 import TemplatesDrawer from "./Templates";
 import AddedSections from "./AddedSections";
 import ComponentsDrawer from "./Components";
 import ElementsDrawer from "./Elements";
-import { IComponent } from "@/types/schema";
 import { useFieldArray, useFormContext } from "react-hook-form";
 
 export type EditorDrawerViews =
@@ -27,22 +19,11 @@ const EditorDrawer = (props: EditorDrawer) => {
   const [currentEditorDrawerView, setCurrentEditorDrawerView] =
     useState<EditorDrawerViews>("templates");
   const form = useFormContext();
-  const { fields: selectedTemplates, append: selectTemplate } = useFieldArray({
+  const { append: selectTemplate } = useFieldArray({
     control: form.control,
     name: "page",
   });
-  useEffect(() => {
-    console.log({ selectedTemplates });
-  }, [selectedTemplates]);
 
-  const handleDeleteSection = (sectionTemplate: IComponent) => {
-    console.log(sectionTemplate);
-    const remainingSections = selectedTemplates.filter(
-      (template) => sectionTemplate.id !== template.id
-    );
-    console.log(remainingSections);
-    // selectTemplate(remainingSections);
-  };
   const views = {
     templates: {
       header: "Templates",
