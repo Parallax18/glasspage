@@ -1,6 +1,7 @@
 "use client";
 
 import EditorDrawer from "@/components/editor/drawer";
+import EmptyScreen from "@/components/editor/EmptyScreen";
 import RenderComponent from "@/components/editor/RenderComponent";
 import { IComponent } from "@/types/schema";
 
@@ -29,27 +30,34 @@ const Editor = () => {
 
   return (
     <Box>
-      <Flex justify={"end"} position={"fixed"} right={0} p={5}>
-        <Button
-          onClick={onOpen}
-          variant={"outline"}
-          color={"lightgray"}
-          border={"1px solid #131313"}
-        >
-          Editor panel
-        </Button>
-      </Flex>
-
       <FormProvider {...form}>
         <Form>
-          <Box color={"white"}>
-            {onScreenSectionTemplates.map((section, index) => {
-              console.log({ section });
-              const MemoizedComponent = memo(RenderComponent);
+          {onScreenSectionTemplates.length === 0 ? (
+            <EmptyScreen onOpen={onOpen} />
+          ) : (
+            <Box>
+              <Flex justify={"end"} position={"fixed"} right={0} p={5}>
+                <Button
+                  onClick={onOpen}
+                  variant={"outline"}
+                  color={"lightgray"}
+                  border={"1px solid #131313"}
+                  _hover={{ border: "1px solid rosybrown" }}
+                >
+                  Editor panel
+                </Button>
+              </Flex>
 
-              return <MemoizedComponent key={index} {...section} />;
-            })}
-          </Box>
+              <Box color={"white"}>
+                {onScreenSectionTemplates.map((section, index) => {
+                  console.log({ section });
+                  const MemoizedComponent = memo(RenderComponent);
+
+                  return <MemoizedComponent key={index} {...section} />;
+                })}
+              </Box>
+            </Box>
+          )}
 
           <EditorDrawer onClose={onClose} isOpen={isOpen} />
         </Form>

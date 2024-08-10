@@ -25,10 +25,11 @@ import { EditorForm } from "@/app/editor/page";
 
 interface AddedSectionSidePaneProps {
   level?: number;
+  openEditView: (data: IComponent) => void;
 }
 
 const AddedSections = (props: AddedSectionSidePaneProps) => {
-  const { level = 0 } = props;
+  const { openEditView, level = 0 } = props;
   const form = useFormContext<EditorForm>();
   const {
     fields: addedTemplates,
@@ -84,7 +85,12 @@ const AddedSections = (props: AddedSectionSidePaneProps) => {
               <DragHandleIcon color={"white"} cursor={"grab"} />
             </Flex>
             <MenuList bg={"#060606"} border={"1px solid #131313"}>
-              <MenuItem bg={"#060606"} color={"lightgrey"} icon={<EditIcon />}>
+              <MenuItem
+                bg={"#060606"}
+                color={"lightgrey"}
+                icon={<EditIcon />}
+                onClick={() => openEditView(template)}
+              >
                 Edit section
               </MenuItem>
               <Popover placement="bottom-end" closeOnBlur>
@@ -108,7 +114,7 @@ const AddedSections = (props: AddedSectionSidePaneProps) => {
                       <IconButton
                         aria-label="confirm delete action"
                         bg={"none"}
-                        onClick={() => deleteSection()}
+                        onClick={() => deleteSection(index)}
                         icon={
                           <Text color={"green"} fontSize={"xs"}>
                             Confirm

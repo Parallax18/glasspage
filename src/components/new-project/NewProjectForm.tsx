@@ -41,7 +41,8 @@ const NewProjectForm = () => {
         </Stack>
         <Button
           w={"full"}
-          bg={"green.600"}
+          bg={"rosybrown"}
+          color={"black"}
           onClick={() => router.push("/editor")}
         >
           Go to editor
