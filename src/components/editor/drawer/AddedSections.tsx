@@ -24,6 +24,7 @@ import {
 import { DragHandleIcon, EditIcon } from "@chakra-ui/icons";
 import { Template } from "@/static/templates";
 import { BiTrash } from "react-icons/bi";
+import { BsDash } from "react-icons/bs";
 
 interface AddedSectionSidePaneProps {
   addedTemplates: Template[];
@@ -46,14 +47,26 @@ const AddedSections = (props: AddedSectionSidePaneProps) => {
             justifyContent={"space-between"}
           >
             <MenuButton aria-label="Added Sections" flex={1}>
-              <Text
-                fontSize={"sm"}
-                color={"lightgrey"}
-                fontWeight={"semibold"}
-                textAlign={"left"}
-              >
-                {template.name}
-              </Text>
+              <Flex gap={2} alignItems={"center"}>
+                <Text
+                  fontSize={"sm"}
+                  color={"lightgrey"}
+                  fontWeight={"bold"}
+                  textAlign={"left"}
+                >
+                  {template.category}
+                </Text>
+                <BsDash color="white" />
+                <Text
+                  fontSize={"sm"}
+                  color={"gray"}
+                  fontWeight={"semibold"}
+                  textAlign={"left"}
+                  textTransform={"capitalize"}
+                >
+                  {template.name}
+                </Text>
+              </Flex>
             </MenuButton>
             <DragHandleIcon color={"white"} cursor={"grab"} />
           </Flex>

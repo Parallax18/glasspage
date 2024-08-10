@@ -1,6 +1,6 @@
 import SimpleColumnGrid from "@/components/templates/features/simple-column-grid";
 import SimpleFooterWithLogo from "@/components/templates/footer/SimpleFooterWithLogo";
-import CallToActionWithAnnotation from "@/components/templates/hero/cta-with-anotation";
+import CallToActionWithAnnotation from "@/components/templates/hero/cta-with-annotation/cta-with-anotation";
 import SplitScreenWithImage from "@/components/templates/hero/split-screen-with-image";
 import ThreeTierPricingWithEmphasizedTier from "@/components/templates/pricing/three-tiers-with-emphasized-tier";
 import WithLargeQuote from "@/components/templates/testimonials/with-large-quote";

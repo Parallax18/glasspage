@@ -9,7 +9,7 @@ const NewProjectForm = () => {
     <Box w={"40%"} m={"auto"} paddingY={"10%"}>
       <Stack spacing={10}>
         <Text color={"lightgrey"} fontWeight={"bold"} fontSize={"2rem"}>
-          Create your portfolio
+          What do you wanna call your page?
         </Text>
         <Stack>
           <Text as={"label"} color={"gray.300"}>

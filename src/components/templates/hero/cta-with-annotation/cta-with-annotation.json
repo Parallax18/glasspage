@@ -1,0 +1,111 @@
+{
+  "components": [
+    {
+      "name": "hero-container",
+      "type": "card",
+      "styles": {
+        "maxW": "3xl",
+        "textAlign": "center",
+        "gap": { "base": 8, "md": 3 },
+        "py": { "base": 20, "md": 36 }
+      },
+      "Component": "Stack",
+      "level": 0,
+      "componentType": "block",
+      "children": [
+        {
+          "id": "heading-1",
+          "type": "text",
+          "styles": {
+            "fontWeight": 600,
+            "fontSize": { "base": "2xl", "sm": "4xl", "md": "6xl" },
+            "lineHeight": "110%"
+          },
+          "attributes": { "as": "h1" },
+          "Component": "Heading",
+          "innerText": "Make money from",
+          "level": 1,
+          "componentType": "element"
+        },
+        {
+          "id": "heading-span",
+          "type": "text",
+          "styles": {
+            "color": "green.400",
+            "fontWeight": 600,
+            "fontSize": { "base": "2xl", "sm": "4xl", "md": "6xl" },
+            "lineHeight": "110%"
+          },
+          "attributes": { "as": "span" },
+          "Component": "Text",
+          "innerText": "your audience",
+          "level": 1,
+          "componentType": "element"
+        },
+        {
+          "id": "description",
+          "type": "text",
+          "styles": {
+            "color": "gray.500"
+          },
+          "attributes": { "as": "p" },
+          "Component": "Text",
+          "innerText": "Monetize your content by charging your most loyal readers and reward them loyalty points. Give back to your loyal readers by granting them access to your pre-releases and sneak-peaks.",
+          "level": 1,
+          "componentType": "element"
+        },
+        {
+          "id": "button-group",
+          "type": "card",
+          "styles": {
+            "direction": "column",
+            "gap": 3,
+            "alignItems": "center",
+            "justifyContent": "center",
+            "alignSelf": "center",
+            "position": "relative"
+          },
+          "Component": "Stack",
+          "level": 1,
+          "componentType": "block",
+          "children": [
+            {
+              "id": "primary-button",
+              "type": "button",
+              "styles": {
+                "colorScheme": "green",
+                "bg": "green.400",
+                "rounded": "full",
+                "px": 6,
+                "_hover": { "bg": "green.500" }
+              },
+              "attributes": { "type": "button" },
+              "Component": "Button",
+              "innerText": "Get started",
+              "level": 2,
+              "componentType": "element"
+            },
+            {
+              "id": "secondary-button",
+              "type": "button",
+              "styles": {
+                "variant": "link",
+                "color": "blue.400",
+                "size": "sm",
+                "padding": 3,
+                "height": 5,
+                "fontWeight": "light",
+                "fontSize": "xs"
+              },
+              "attributes": { "type": "button" },
+              "Component": "Button",
+              "innerText": "Learn more",
+              "level": 2,
+              "componentType": "element"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

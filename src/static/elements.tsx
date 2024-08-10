@@ -10,6 +10,7 @@ export interface IElement {
   styles: Partial<StyleProps>;
   attributes?: Record<string, any>; // Attributes specific to the element
   Component: React.ComponentType<any>; // Component to render
+  innerText?: string;
 }
 
 // Define allowed styles for each element type

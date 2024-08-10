@@ -1,6 +1,7 @@
 "use client";
 
 import EditorDrawer, { EditorDrawerViews } from "@/components/editor/drawer";
+import TestCta from "@/components/templates/hero/cta-with-annotation/test-cta";
 
 import { Template } from "@/static/templates";
 
@@ -42,6 +43,7 @@ const Editor = () => {
 
             return <MemoizedComponent key={section.id + index} />;
           })}
+          <TestCta />
         </Box>
       </Box>
       <EditorDrawer

@@ -12,6 +12,8 @@ interface IComponent {
   styles: Partial<StyleProps>; // Styles for the overall component
 }
 
+interface ComponentSchema {}
+
 // Example components array with filtered styles
 const components: IComponent[] = [
   {
