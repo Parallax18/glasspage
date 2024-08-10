@@ -13,3 +13,5 @@ export interface IComponent {
   componentType: string;
   children?: IComponent[];
 }
+
+export type IComponentWithIndex = IComponent & { index: number };

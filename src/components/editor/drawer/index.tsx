@@ -7,7 +7,7 @@ import ComponentsDrawer from "./Components";
 import ElementsDrawer from "./Elements";
 import { useFieldArray, useFormContext } from "react-hook-form";
 
-import { IComponent } from "@/types/schema";
+import { IComponent, IComponentWithIndex } from "@/types/schema";
 import CustomizeSection from "./CustomizeSection";
 import { BiChevronLeft } from "react-icons/bi";
 
@@ -23,7 +23,8 @@ const EditorDrawer = (props: EditorDrawer) => {
   const { isOpen, onClose } = props;
   const [currentEditorDrawerView, setCurrentEditorDrawerView] =
     useState<EditorDrawerViews>("templates");
-  const [customizationData, setCustomizationData] = useState<IComponent>();
+  const [customizationData, setCustomizationData] =
+    useState<IComponentWithIndex>();
   const form = useFormContext();
   const { append: selectTemplate } = useFieldArray({
     control: form.control,
@@ -39,7 +40,7 @@ const EditorDrawer = (props: EditorDrawer) => {
       header: "Sections",
       component: (
         <AddedSections
-          openEditView={(data: IComponent) => {
+          openEditView={(data: IComponentWithIndex) => {
             setCurrentEditorDrawerView("customize");
             setCustomizationData(data);
           }}

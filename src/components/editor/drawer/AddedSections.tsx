@@ -19,13 +19,13 @@ import {
 import { DragHandleIcon, EditIcon } from "@chakra-ui/icons";
 import { BiTrash } from "react-icons/bi";
 import { BsDash } from "react-icons/bs";
-import { IComponent } from "@/types/schema";
+import { IComponent, IComponentWithIndex } from "@/types/schema";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import { EditorForm } from "@/app/editor/page";
 
 interface AddedSectionSidePaneProps {
   level?: number;
-  openEditView: (data: IComponent) => void;
+  openEditView: (data: IComponentWithIndex) => void;
 }
 
 const AddedSections = (props: AddedSectionSidePaneProps) => {
@@ -44,7 +44,7 @@ const AddedSections = (props: AddedSectionSidePaneProps) => {
   return (
     <Stack spacing={4}>
       {addedTemplates.map((template, index) => (
-        <Stack key={template.id} px={2}>
+        <Stack key={template.id}>
           <Menu closeOnSelect={false}>
             <Flex
               w={"full"}
@@ -89,7 +89,7 @@ const AddedSections = (props: AddedSectionSidePaneProps) => {
                 bg={"#060606"}
                 color={"lightgrey"}
                 icon={<EditIcon />}
-                onClick={() => openEditView(template)}
+                onClick={() => openEditView({ ...template, index })}
               >
                 Edit section
               </MenuItem>
