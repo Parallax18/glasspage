@@ -1,4 +1,4 @@
-import ChooseSectionType from "@/components/editor/ChooseSectionType";
+import ChooseSectionType from "@/components/editor/drawer/Templates";
 import Preview from "@/components/editor/Preview";
 import { Box, Center, Heading, Stack } from "@chakra-ui/react";
 import React from "react";

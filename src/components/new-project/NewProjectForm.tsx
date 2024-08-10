@@ -8,7 +8,7 @@ const NewProjectForm = () => {
   return (
     <Box w={"40%"} m={"auto"} paddingY={"10%"}>
       <Stack spacing={10}>
-        <Text color={"yellow.400"} fontWeight={"bold"} fontSize={"2rem"}>
+        <Text color={"lightgrey"} fontWeight={"bold"} fontSize={"2rem"}>
           Create your portfolio
         </Text>
         <Stack>
