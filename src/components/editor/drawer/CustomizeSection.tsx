@@ -21,61 +21,63 @@ const CustomizeSection = ({ data }: { data?: IComponentWithIndex }) => {
     <Stack>
       <CustomizationForm index={Number(data?.index)} />
 
-      <Divider />
       <Heading size={"base"} color={"white"}>
-        Blocks
+        Children
       </Heading>
-      <Accordion allowToggle border={"none"}>
-        {data?.children?.map((child, idx) => (
-          <AccordionItem border={"none"} key={child.id}>
-            <AccordionButton>
-              <Flex
-                w={"full"}
-                border={"1px solid #131313"}
-                padding={3}
-                rounded={"base"}
-                cursor={"pointer"}
-                alignItems={"center"}
-                justifyContent={"space-between"}
-              >
-                <Flex gap={2} alignItems={"center"}>
-                  <Text
-                    fontSize={"sm"}
-                    color={"lightgrey"}
-                    fontWeight={"bold"}
-                    textAlign={"left"}
-                    isTruncated
-                    maxW="250px"
-                    textTransform={"capitalize"}
-                  >
-                    {child.innerText || child.type}
-                  </Text>
-                  {child.level === 0 && <BsDash color="white" />}
-                  <Text
-                    fontSize={"sm"}
-                    color={"gray"}
-                    fontWeight={"semibold"}
-                    textAlign={"left"}
-                    textTransform={"capitalize"}
-                  >
-                    {child.name}
-                  </Text>
+      <Stack p={3} rounded={"md"}>
+        <Accordion allowToggle border={"none"}>
+          {data?.children?.map((child, idx) => (
+            <AccordionItem border={"none"} key={child.id} padding={0}>
+              <AccordionButton>
+                <Flex
+                  w={"full"}
+                  border={"1px solid"}
+                  borderColor={"lightgrey"}
+                  padding={3}
+                  rounded={"base"}
+                  cursor={"pointer"}
+                  alignItems={"center"}
+                  justifyContent={"space-between"}
+                >
+                  <Flex gap={2} alignItems={"center"}>
+                    <Text
+                      fontSize={"sm"}
+                      color={"lightgrey"}
+                      fontWeight={"bold"}
+                      textAlign={"left"}
+                      isTruncated
+                      maxW="250px"
+                      textTransform={"capitalize"}
+                    >
+                      {child.innerText || child.type}
+                    </Text>
+                    {child.level === 0 && <BsDash color="white" />}
+                    <Text
+                      fontSize={"sm"}
+                      color={"gray"}
+                      fontWeight={"semibold"}
+                      textAlign={"left"}
+                      textTransform={"capitalize"}
+                    >
+                      {child.name}
+                    </Text>
+                  </Flex>
+
+                  <DragHandleIcon color={"white"} cursor={"grab"} />
                 </Flex>
+                <AccordionIcon color={"white"} />
+              </AccordionButton>
 
-                <DragHandleIcon color={"white"} cursor={"grab"} />
-              </Flex>
-              <AccordionIcon color={"white"} />
-            </AccordionButton>
-
-            <AccordionPanel pb={4}>
-              <CustomizationForm index={idx} />
-              {child.children ? (
-                <CustomizeSection data={{ ...child, index: idx }} />
-              ) : null}
-            </AccordionPanel>
-          </AccordionItem>
-        ))}
-      </Accordion>
+              <AccordionPanel pb={4}>
+                <CustomizationForm index={idx} />
+                {child.children ? (
+                  <CustomizeSection data={{ ...child, index: idx }} />
+                ) : null}
+              </AccordionPanel>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Stack>
     </Stack>
   );
 };

@@ -1,22 +1,20 @@
 import SideDrawer, { SideDrawerProps } from "@/components/general/SideDrawer";
-import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Circle, Flex, Heading, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import TemplatesDrawer from "./Templates";
 import AddedSections from "./AddedSections";
 import ComponentsDrawer from "./Components";
 import ElementsDrawer from "./Elements";
-import { useFieldArray, useFormContext } from "react-hook-form";
+import { useFieldArray, useFormContext, useWatch } from "react-hook-form";
 
 import { IComponent, IComponentWithIndex } from "@/types/schema";
 import CustomizeSection from "./CustomizeSection";
 import { BiChevronLeft } from "react-icons/bi";
+import { EditorForm } from "@/app/editor/page";
 
-export type EditorDrawerViews =
-  | "sections"
-  | "templates"
-  | "elements"
-  | "components"
-  | "customize";
+export type EditorDrawerViews = "sections" | "templates" | "customize";
+// | "elements"
+// | "components"
 interface EditorDrawer extends Omit<SideDrawerProps, "title" | "children"> {}
 
 const EditorDrawer = (props: EditorDrawer) => {
@@ -25,19 +23,31 @@ const EditorDrawer = (props: EditorDrawer) => {
     useState<EditorDrawerViews>("templates");
   const [customizationData, setCustomizationData] =
     useState<IComponentWithIndex>();
-  const form = useFormContext();
+  const form = useFormContext<EditorForm>();
   const { append: selectTemplate } = useFieldArray({
     control: form.control,
     name: "page",
   });
+  const fields = useWatch({
+    control: form.control,
+    name: "page",
+  });
+
+  const getHeader = () => {
+    return (
+      fields?.[Number(customizationData?.index)]?.name ||
+      fields?.[Number(customizationData?.index)]?.type ||
+      fields?.[Number(customizationData?.index)]?.id
+    );
+  };
 
   const views = {
     templates: {
-      header: "Templates",
+      header: "Browse Templates",
       component: <TemplatesDrawer onSelectTemplate={selectTemplate} />,
     },
     sections: {
-      header: "Sections",
+      header: "Your Sections",
       component: (
         <AddedSections
           openEditView={(data: IComponentWithIndex) => {
@@ -47,22 +57,19 @@ const EditorDrawer = (props: EditorDrawer) => {
         />
       ),
     },
-    components: { header: "Components", component: <ComponentsDrawer /> },
+    // components: { header: "Components", component: <ComponentsDrawer /> },
 
-    elements: { header: "Elements", component: <ElementsDrawer /> },
+    // elements: { header: "Elements", component: <ElementsDrawer /> },
     customize: {
       header: (
         <Flex
           alignItems={"center"}
           cursor={"pointer"}
+          w={"max"}
           onClick={() => setCurrentEditorDrawerView("sections")}
         >
           <BiChevronLeft color="white" size={24} />
-          <Text>
-            {customizationData?.name ||
-              customizationData?.type ||
-              customizationData?.id}
-          </Text>
+          <Text>{getHeader()}</Text>
         </Flex>
       ),
       component: <CustomizeSection data={customizationData} />,
@@ -80,13 +87,12 @@ const EditorDrawer = (props: EditorDrawer) => {
       }
       footer={
         <Flex
-          rounded={"base"}
           alignItems="center"
-          justifyContent="space-between"
-          backdropFilter="blur(8px)"
-          boxShadow={"lg"}
-          px={2}
+          justifyContent="start"
+          px={0}
           py={2}
+          gap={4}
+          w={"full"}
         >
           {Object.keys(views)
             .filter((view) => view !== "customize")
@@ -98,10 +104,27 @@ const EditorDrawer = (props: EditorDrawer) => {
                 onClick={() =>
                   setCurrentEditorDrawerView(view as EditorDrawerViews)
                 }
-                py={3}
+                py={2}
+                fontSize={"sm"}
                 textTransform={"capitalize"}
               >
-                {view}
+                {views[view].header}
+                {view === "sections" ? (
+                  <Flex
+                    ml={2}
+                    p={1}
+                    bg={"black"}
+                    h={4}
+                    w={4}
+                    color={"white"}
+                    rounded={"full"}
+                    fontSize={"xs"}
+                    justifyContent={"center"}
+                    alignItems={"center"}
+                  >
+                    {fields.length}
+                  </Flex>
+                ) : null}
               </Button>
             ))}
           {/* 

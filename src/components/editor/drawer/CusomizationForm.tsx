@@ -20,16 +20,19 @@ import { useFieldArray, useFormContext, useWatch } from "react-hook-form";
 const CustomizationForm = ({ index }: { index: number }) => {
   const { getInputProps, getCheckboxProps } = useCheckbox();
   const { getRootProps, getRadioProps } = useRadioGroup();
-  const { setValue, control } = useFormContext<EditorForm>();
+  const { setValue, control, register } = useFormContext<EditorForm>();
   const form = useWatch({ control: control });
-  //   const {} = useFieldArray({control, name: "page"})
-  console.log({ form });
 
   return (
     <Box color={"lightgray"}>
       <Stack p="6" gap="4">
         <FormControl mb="4">
-          <FormLabel htmlFor="name" fontSize="sm" fontWeight="medium">
+          <FormLabel
+            htmlFor="name"
+            fontSize="sm"
+            fontWeight="medium"
+            color={"lightgrey"}
+          >
             Name
           </FormLabel>
           <Input
@@ -38,8 +41,11 @@ const CustomizationForm = ({ index }: { index: number }) => {
             size="md"
             rounded="md"
             borderColor="borderColor"
+            // {...register(`page.${index}.name`)}
+            value={form.page?.[index]?.name}
             onChange={(e) => setValue(`page.${index}.name`, e.target.value)}
             bg={"dark"}
+            h={12}
             _focus={{
               ring: 2,
               ringColor: "blue.500",
@@ -47,8 +53,13 @@ const CustomizationForm = ({ index }: { index: number }) => {
           />
         </FormControl>
 
-        <FormControl mb="4" hidden>
-          <FormLabel htmlFor="bio" fontSize="sm" fontWeight="medium">
+        <FormControl mb="4">
+          <FormLabel
+            htmlFor="bio"
+            fontSize="sm"
+            fontWeight="medium"
+            color={"lightgrey"}
+          >
             Content
           </FormLabel>
           <Textarea
@@ -66,7 +77,7 @@ const CustomizationForm = ({ index }: { index: number }) => {
           />
         </FormControl>
 
-        <FormControl mb="4" hidden>
+        <FormControl mb="4">
           <FormLabel htmlFor="avatar" fontSize="sm" fontWeight="medium">
             Avatar
           </FormLabel>
@@ -164,7 +175,7 @@ const CustomizationForm = ({ index }: { index: number }) => {
           </FormLabel>
         </FormControl>
 
-        <FormControl mb="4">
+        <FormControl mb="4" hidden>
           <FormLabel fontSize="sm" fontWeight="medium">
             Preferences
           </FormLabel>
@@ -212,7 +223,7 @@ const CustomizationForm = ({ index }: { index: number }) => {
           </Box>
         </FormControl>
 
-        <FormControl mb="4">
+        <FormControl mb="4" hidden>
           <FormLabel fontSize="sm" fontWeight="medium">
             Notification Frequency
           </FormLabel>
@@ -280,7 +291,7 @@ const CustomizationForm = ({ index }: { index: number }) => {
           </Box>
         </FormControl>
 
-        <FormControl>
+        <FormControl hidden>
           <FormLabel fontSize="sm" fontWeight="medium">
             Notification Channels
           </FormLabel>

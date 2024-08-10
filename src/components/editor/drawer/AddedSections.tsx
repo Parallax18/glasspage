@@ -60,19 +60,6 @@ const AddedSections = (props: AddedSectionSidePaneProps) => {
                 <Flex gap={2} alignItems={"center"}>
                   <Text
                     fontSize={"sm"}
-                    color={"lightgrey"}
-                    fontWeight={"bold"}
-                    textAlign={"left"}
-                    isTruncated
-                    maxW="200px" // You can adjust the max width as needed
-                  >
-                    {template.level !== 0
-                      ? template.innerText || template.type
-                      : template.category}
-                  </Text>
-                  {template.level === 0 && <BsDash color="white" />}
-                  <Text
-                    fontSize={"sm"}
                     color={"gray"}
                     fontWeight={"semibold"}
                     textAlign={"left"}
@@ -89,7 +76,9 @@ const AddedSections = (props: AddedSectionSidePaneProps) => {
                 bg={"#060606"}
                 color={"lightgrey"}
                 icon={<EditIcon />}
-                onClick={() => openEditView({ ...template, index })}
+                onClick={() => {
+                  openEditView({ ...template, index });
+                }}
               >
                 Edit section
               </MenuItem>

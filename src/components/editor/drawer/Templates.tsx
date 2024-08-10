@@ -47,7 +47,7 @@ export const TemplateCategory = ({
                 textAlign={"center"}
                 fontWeight={"semibold"}
               >
-                {name}
+                {name} section templates
               </Text>
               <AccordionIcon color={"white"} fontSize={"lg"} />
             </Flex>
