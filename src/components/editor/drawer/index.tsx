@@ -12,7 +12,7 @@ import TemplatesDrawer from "./Templates";
 import AddedSections from "./AddedSections";
 import ComponentsDrawer from "./Components";
 import ElementsDrawer from "./Elements";
-import { Template } from "@/static/templates";
+import { IComponent } from "@/types/schema";
 
 export type EditorDrawerViews =
   | "sections"
@@ -20,8 +20,8 @@ export type EditorDrawerViews =
   | "elements"
   | "components";
 interface EditorDrawer extends Omit<SideDrawerProps, "title" | "children"> {
-  selectedTemplates: Template[];
-  selectTemplate: React.Dispatch<React.SetStateAction<Template[]>>;
+  selectedTemplates: IComponent[];
+  selectTemplate: React.Dispatch<React.SetStateAction<IComponent[]>>;
 }
 
 const EditorDrawer = (props: EditorDrawer) => {
@@ -29,14 +29,16 @@ const EditorDrawer = (props: EditorDrawer) => {
   const [currentEditorDrawerView, setCurrentEditorDrawerView] =
     useState<EditorDrawerViews>("templates");
 
-  const handleSelectSection = (sectionTemplate: Template) => {
+  const handleSelectSection = (sectionTemplate: IComponent) => {
     selectTemplate([...selectedTemplates, sectionTemplate]);
   };
-  const handleDeleteSection = (sectionTemplate: Template) => {
+  const handleDeleteSection = (sectionTemplate: IComponent) => {
+    console.log(sectionTemplate);
     const remainingSections = selectedTemplates.filter(
       (template) => sectionTemplate.id !== template.id
     );
-    selectTemplate(remainingSections);
+    console.log(remainingSections);
+    // selectTemplate(remainingSections);
   };
   const views = {
     templates: {

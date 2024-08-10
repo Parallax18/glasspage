@@ -4,9 +4,11 @@ import {
   Box,
   Button,
   Center,
+  Flex,
   HStack,
   Heading,
   Icon,
+  Image,
   Stack,
   Text,
   chakra,
@@ -22,6 +24,8 @@ const componentMap: Record<string, React.ComponentType<any>> = {
   Icon,
   Stack,
   HStack,
+  Flex,
+  Image,
 };
 
 export function RenderElement({ component }: { component: IComponent }) {
@@ -34,25 +38,28 @@ export function RenderElement({ component }: { component: IComponent }) {
   });
 
   return (
-    <StyledComponent {...component.attributes}>
-      <>{component.innerText}</>
-      {component.children &&
-        component.children?.map((childElement) => {
-          console.log(childElement);
-          return (
-            <RenderElement key={childElement.id} component={childElement} />
-          );
-        })}
-    </StyledComponent>
+    <>
+      {component.type === "image" || component.type === "text-input" ? (
+        <StyledComponent {...component.attributes} />
+      ) : (
+        <StyledComponent {...component.attributes}>
+          <>{component.innerText}</>
+          {component.children &&
+            component.children?.map((childElement) => {
+              return (
+                <RenderElement key={childElement.id} component={childElement} />
+              );
+            })}
+        </StyledComponent>
+      )}
+    </>
   );
 }
 
-const TestCta = () => {
+const TestCta = (props) => {
   return (
     <Center>
-      {CtaWithAnnotationData.components.map((component) => (
-        <RenderElement key={component.name} component={component} />
-      ))}
+      <RenderElement key={props.name} component={props} />
     </Center>
   );
 };

@@ -2,8 +2,7 @@
 
 import EditorDrawer, { EditorDrawerViews } from "@/components/editor/drawer";
 import TestCta from "@/components/templates/hero/cta-with-annotation/test-cta";
-
-import { Template } from "@/static/templates";
+import { IComponent } from "@/types/schema";
 
 import {
   Box,
@@ -19,7 +18,7 @@ const Editor = () => {
   const { onClose, isOpen, onOpen } = useDisclosure();
 
   const [onScreenSectionTemplates, setOnScreenSectionTemplates] = useState<
-    Template[]
+    IComponent[]
   >([]);
 
   return (
@@ -38,12 +37,11 @@ const Editor = () => {
       <Box color={"white"}>
         <Box paddingX={"3%"}>
           {onScreenSectionTemplates?.map((section, index) => {
-            const { Component } = section;
-            const MemoizedComponent = memo(Component);
+            console.log({ section });
+            const MemoizedComponent = memo(TestCta);
 
-            return <MemoizedComponent key={section.id + index} />;
+            return <MemoizedComponent key={section.name} {...section} />;
           })}
-          <TestCta />
         </Box>
       </Box>
       <EditorDrawer
