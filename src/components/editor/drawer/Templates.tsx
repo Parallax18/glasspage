@@ -15,6 +15,7 @@ import {
   SimpleGrid,
   AccordionIcon,
 } from "@chakra-ui/react";
+import Image from "next/image";
 
 import React from "react";
 
@@ -59,21 +60,30 @@ export const TemplateCategory = ({
                 <Stack
                   rounded={"base"}
                   key={template.id}
-                  height={"32"}
+                  // height={"32"}
                   bg={"black"}
                   p={2}
                   w={"full"}
                   cursor={"pointer"}
                   onClick={() => onSelectTemplate(template)}
                 >
-                  <Flex gap={2} h={"60%"} w={"full"}>
-                    <Box
-                      bg={"dimgray"}
-                      h={"full"}
-                      w={"full"}
-                      rounded={"base"}
+                  {/* <Flex gap={2}  w={"full"}> */}
+                  <Box
+                    h={"10rem"}
+                    bg={"dimgray"}
+                    // h={"full"}
+                    w={"full"}
+                    rounded={"base"}
+                    position={"relative"}
+                  >
+                    <Image
+                      fill
+                      src={String(template.thumbnail)}
+                      alt=""
+                      objectFit="cover"
                     />
-                  </Flex>
+                  </Box>
+                  {/* </Flex> */}
                   <Text
                     fontSize={"sm"}
                     color={"lightgrey"}

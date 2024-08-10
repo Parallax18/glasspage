@@ -2,6 +2,7 @@
   "name": "CTA with annotation",
   "category": "Hero",
   "type": "card",
+  "thumbnail": "/assets/do-great-things.jpeg",
   "styles": {
     "textAlign": "center",
     "justifyContent": "center",
@@ -23,7 +24,7 @@
       },
       "attributes": { "as": "h1" },
       "Component": "Heading",
-      "innerText": "Do great things",
+      "innerText": "Do great things,",
       "level": 1,
       "componentType": "element"
     },

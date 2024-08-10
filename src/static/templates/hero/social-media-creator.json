@@ -1,0 +1,226 @@
+{
+  "name": "Social Media Creator",
+  "category": "Hero",
+  "type": "card",
+  "thumbnail": "/assets/social-media.jpeg",
+  "styles": {
+    "w": "full",
+    "py": { "base": 20, "md": 32 },
+    "px": { "base": 20, "md": 32 },
+    "bgGradient": "linear(to-br, #0077b6, #00b2ff)"
+  },
+  "Component": "Box",
+  "level": 0,
+  "componentType": "block",
+  "children": [
+    {
+      "type": "card",
+      "styles": {
+        "px": { "base": 4, "md": 6 },
+        "flexDirection": { "base": "column", "md": "row" },
+        "alignItems": "center",
+        "justifyContent": "space-between",
+        "gap": 8
+      },
+      "Component": "Flex",
+      "level": 1,
+      "componentType": "block",
+      "children": [
+        {
+          "type": "card",
+          "styles": {
+            "gap": 4,
+            "textAlign": { "base": "center", "md": "left" },
+            "maxW": "xl"
+          },
+          "Component": "Box",
+          "level": 2,
+          "componentType": "block",
+          "children": [
+            {
+              "type": "text",
+              "styles": {
+                "display": "inline-block",
+                "rounded": "full",
+                "bg": "#e4405f",
+                "px": 4,
+                "py": 2,
+                "fontSize": "sm",
+                "fontWeight": "medium",
+                "color": "white"
+              },
+              "Component": "Box",
+              "innerText": "Trusted by the world's most innovative companies",
+              "level": 3,
+              "componentType": "element"
+            },
+            {
+              "type": "text",
+              "styles": {
+                "fontSize": { "base": "5xl", "md": "6xl" },
+                "fontWeight": "bold",
+                "lineHeight": "tight",
+                "color": "white"
+              },
+              "Component": "Heading",
+              "innerText": "Unleash Your Creative Spark!",
+              "level": 3,
+              "componentType": "element"
+            },
+            {
+              "type": "text",
+              "styles": {
+                "maxW": "700px",
+                "color": "white",
+                "opacity": 0.8,
+                "fontSize": { "base": "lg", "md": "xl" },
+                "mx": "auto"
+              },
+              "Component": "Text",
+              "innerText": "Join our vibrant community and let your unique voice shine.",
+              "level": 3,
+              "componentType": "element"
+            },
+            {
+              "type": "card",
+              "styles": {
+                "flexDirection": { "base": "column", "sm": "row" },
+                "gap": 4,
+                "justifyContent": { "base": "center", "md": "start" }
+              },
+              "Component": "Flex",
+              "level": 3,
+              "componentType": "block",
+              "children": [
+                {
+                  "type": "button",
+                  "styles": {
+                    "h": 12,
+                    "rounded": "full",
+                    "bg": "#e4405f",
+                    "color": "white",
+                    "px": 4,
+                    "py": 2,
+                    "fontSize": "sm",
+                    "fontWeight": "medium",
+                    "shadow": "lg",
+                    "_hover": { "bg": "#c13257" },
+                    "_focusVisible": {
+                      "outline": "none",
+                      "ring": 1,
+                      "ringColor": "#e4405f"
+                    },
+                    "_disabled": {
+                      "pointerEvents": "none",
+                      "opacity": 0.5
+                    }
+                  },
+                  "attributes": { "type": "button" },
+                  "Component": "Button",
+                  "innerText": "Instagram",
+                  "level": 4,
+                  "componentType": "element"
+                },
+                {
+                  "type": "button",
+                  "styles": {
+                    "h": 12,
+                    "rounded": "full",
+                    "bg": "#ff0000",
+                    "color": "white",
+                    "px": 4,
+                    "py": 2,
+                    "fontSize": "sm",
+                    "fontWeight": "medium",
+                    "shadow": "lg",
+                    "_hover": { "bg": "#cc0000" },
+                    "_focusVisible": {
+                      "outline": "none",
+                      "ring": 1,
+                      "ringColor": "#ff0000"
+                    },
+                    "_disabled": {
+                      "pointerEvents": "none",
+                      "opacity": 0.5
+                    }
+                  },
+                  "attributes": { "type": "button" },
+                  "Component": "Button",
+                  "innerText": "YouTube",
+                  "level": 4,
+                  "componentType": "element"
+                },
+                {
+                  "type": "button",
+                  "styles": {
+                    "h": 12,
+                    "rounded": "full",
+                    "bgGradient": "linear(to-r, #000000, #000000)",
+                    "color": "white",
+                    "px": 4,
+                    "py": 2,
+                    "fontSize": "sm",
+                    "fontWeight": "medium",
+                    "shadow": "lg",
+                    "_hover": {
+                      "bgGradient": "linear(to-r, #333333, #333333)"
+                    },
+                    "_focusVisible": {
+                      "outline": "none",
+                      "ring": 1,
+                      "ringColor": "#000000"
+                    },
+                    "_disabled": {
+                      "pointerEvents": "none",
+                      "opacity": 0.5
+                    }
+                  },
+                  "attributes": { "type": "button" },
+                  "Component": "Button",
+                  "innerText": "TikTok",
+                  "level": 4,
+                  "componentType": "element"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "styles": {
+            "gap": 4,
+            "w": "full",
+            "maxW": "md",
+            "relative": true
+          },
+          "Component": "Box",
+          "level": 2,
+          "componentType": "block",
+          "children": [
+            {
+              "type": "image",
+              "styles": {
+                "relative": true,
+
+                "w": "full",
+                "h": "auto",
+                "rounded": "2xl",
+                "objectFit": "cover",
+                "aspectRatio": "1/1"
+              },
+              "Component": "Image",
+              "attributes": {
+                "src": "https://images.unsplash.com/photo-1620403724159-40363e84a155?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y29udGVudCUyMGNyZWF0b3J8ZW58MHx8MHx8fDA%3D",
+                "alt": "Creator Image",
+                "width": 600,
+                "height": 600
+              },
+              "level": 3,
+              "componentType": "element"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -108,7 +108,7 @@ const EditorDrawer = (props: EditorDrawer) => {
                 fontSize={"sm"}
                 textTransform={"capitalize"}
               >
-                {views[view].header}
+                {views[view as EditorDrawerViews].header}
                 {view === "sections" ? (
                   <Flex
                     ml={2}

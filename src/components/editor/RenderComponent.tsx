@@ -3,13 +3,17 @@ import React from "react";
 import {
   Box,
   Button,
+  Container,
   Flex,
   HStack,
   Heading,
   Icon,
   Image,
+  Link,
+  SimpleGrid,
   Stack,
   Text,
+  VStack,
   chakra,
 } from "@chakra-ui/react";
 
@@ -25,6 +29,10 @@ const componentMap: Record<string, React.ComponentType<any>> = {
   HStack,
   Flex,
   Image,
+  Container,
+  VStack,
+  SimpleGrid,
+  Link,
 };
 
 const RenderComponent = (component: IComponent) => {

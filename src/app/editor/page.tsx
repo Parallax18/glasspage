@@ -43,6 +43,7 @@ const Editor = () => {
                   color={"lightgray"}
                   border={"1px solid #131313"}
                   _hover={{ border: "1px solid rosybrown" }}
+                  hidden
                 >
                   Editor panel
                 </Button>

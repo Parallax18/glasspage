@@ -1,0 +1,166 @@
+{
+  "name": "Simple SAAS Header",
+  "category": "Hero",
+  "type": "card",
+  "thumbnail": "/assets/saas.jpeg",
+  "styles": {
+    "w": "full",
+    "py": { "base": 12, "md": 24, "lg": 32, "xl": 48 },
+    "bgGradient": "linear(to-r, #1A202C, #2D3748)"
+  },
+  "Component": "Box",
+  "level": 0,
+  "componentType": "block",
+  "id": "simple-saas-header-0",
+  "children": [
+    {
+      "id": "simple-saas-header-container-1",
+      "type": "card",
+      "styles": {
+        "px": { "base": 4, "md": 6 },
+        "textAlign": "center"
+      },
+      "Component": "Container",
+      "level": 1,
+      "componentType": "block",
+      "children": [
+        {
+          "id": "simple-saas-header-vstack-2",
+          "type": "card",
+          "styles": { "spacing": 4 },
+          "Component": "VStack",
+          "level": 2,
+          "componentType": "block",
+          "children": [
+            {
+              "id": "simple-saas-header-trusted-by-text-3",
+              "type": "text",
+              "styles": {
+                "display": "inline-block",
+                "rounded": "full",
+                "bg": "#FFF0E5",
+                "px": 4,
+                "py": 2,
+                "fontSize": "sm",
+                "fontWeight": "medium",
+                "color": "#FF7A59"
+              },
+              "Component": "Box",
+              "innerText": "Trusted by the world's most innovative companies",
+              "level": 3,
+              "componentType": "element"
+            },
+            {
+              "id": "simple-saas-header-heading-4",
+              "type": "text",
+              "styles": {
+                "fontSize": {
+                  "base": "4xl",
+                  "sm": "5xl",
+                  "md": "6xl",
+                  "lg": "7xl"
+                },
+                "fontWeight": "bold",
+                "lineHeight": "tight",
+                "color": "white"
+              },
+              "Component": "Heading",
+              "innerText": "Unleash your creativity with our tools",
+              "level": 3,
+              "componentType": "element"
+            },
+            {
+              "id": "simple-saas-header-description-5",
+              "type": "text",
+              "styles": {
+                "maxW": "700px",
+                "color": "lightgray",
+                "fontSize": { "base": "md", "md": "xl" },
+                "mx": "auto"
+              },
+              "Component": "Text",
+              "innerText": "Discover a suite of powerful, user-friendly tools that empower you to bring your ideas to life.",
+              "level": 3,
+              "componentType": "element"
+            },
+            {
+              "id": "simple-saas-header-button-wrapper-6",
+              "type": "card",
+              "styles": {},
+              "Component": "Box",
+              "level": 3,
+              "componentType": "block",
+              "children": [
+                {
+                  "id": "simple-saas-header-get-started-button-7",
+                  "type": "button",
+                  "styles": {
+                    "rounded": "full",
+                    "bg": "#FF7A59",
+                    "color": "white",
+                    "h": 10,
+                    "px": 6,
+                    "py": 2,
+                    "fontSize": "sm",
+                    "fontWeight": "medium",
+                    "shadow": "md",
+                    "transition": "background-color 0.2s",
+                    "_hover": { "bg": "#FF6746" },
+                    "_focusVisible": {
+                      "outline": "none",
+                      "ring": 1,
+                      "ringColor": "#FF7A59"
+                    },
+                    "_disabled": {
+                      "pointerEvents": "none",
+                      "opacity": 0.5
+                    }
+                  },
+                  "attributes": { "as": "a", "href": "#" },
+                  "Component": "Button",
+                  "innerText": "Get Started",
+                  "level": 4,
+                  "componentType": "element"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "simple-saas-header-image-wrapper-8",
+          "type": "card",
+          "styles": {
+            "mt": 8,
+            "w": "full",
+            "maxW": "800px",
+            "overflow": "hidden",
+            "rounded": "xl",
+            "shadow": "xl"
+          },
+          "Component": "Box",
+          "level": 2,
+          "componentType": "block",
+          "children": [
+            {
+              "id": "simple-saas-header-image-9",
+              "type": "image",
+              "styles": {
+                "width": "800",
+                "height": "400",
+                "objectFit": "cover",
+                "aspectRatio": "800/400"
+              },
+              "attributes": {
+                "src": "https://images.unsplash.com/photo-1642132652806-8aa09801c2ab?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fHNhYXN8ZW58MHx8MHx8fDA%3D",
+                "alt": "Hand-drawn illustration"
+              },
+              "Component": "Image",
+              "level": 3,
+              "componentType": "element"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

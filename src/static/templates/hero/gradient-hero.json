@@ -2,6 +2,7 @@
   "name": "Gradient Hero",
   "category": "Hero",
   "type": "card",
+  "thumbnail": "/assets/gradient-hero.jpeg",
   "styles": {
     "w": "full",
     "py": { "base": 12, "md": 24, "lg": 32 },

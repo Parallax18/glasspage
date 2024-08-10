@@ -2,6 +2,7 @@
   "name": "Split Screen With Image",
   "category": "Hero",
   "type": "card",
+  "thumbnail": "/assets/split-screen.jpeg",
   "styles": {
     "minH": "50vh",
     "direction": { "base": "column", "md": "row" },
