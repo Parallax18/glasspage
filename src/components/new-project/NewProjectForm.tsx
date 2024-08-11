@@ -7,14 +7,14 @@ const NewProjectForm = () => {
   const router = useRouter();
   return (
     <Box w={"40%"} m={"auto"} paddingY={"10%"}>
-      <Stack spacing={10}>
+      <Stack spacing={7}>
         <Text color={"lightgrey"} fontWeight={"bold"} fontSize={"2rem"}>
-          What do you wanna call your page?
+          Your name or brand
         </Text>
         <Stack>
-          <Text as={"label"} color={"gray.300"}>
+          {/* <Text as={"label"} color={"gray.300"}>
             Enter your name
-          </Text>
+          </Text> */}
           <Input
             h={14}
             px={4}
@@ -40,6 +40,7 @@ const NewProjectForm = () => {
           />
         </Stack>
         <Button
+          mt={7}
           w={"full"}
           bg={"rosybrown"}
           color={"black"}

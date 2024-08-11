@@ -1,6 +1,7 @@
 "use client";
 
 import EditorDrawer from "@/components/editor/drawer";
+import AddedSections from "@/components/editor/drawer/AddedSections";
 import EmptyScreen from "@/components/editor/EmptyScreen";
 import RenderComponent from "@/components/editor/RenderComponent";
 import { IComponent } from "@/types/schema";
@@ -43,7 +44,6 @@ const Editor = () => {
                   color={"lightgray"}
                   border={"1px solid #131313"}
                   _hover={{ border: "1px solid rosybrown" }}
-                  hidden
                 >
                   Editor panel
                 </Button>
