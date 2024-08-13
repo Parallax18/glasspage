@@ -52,6 +52,9 @@ const RenderComponent = (component: IComponent) => {
       ...component.styles,
       border:
         componentInFocus?.id === component.id ? "1px dashed silver" : "none",
+      _hover: {
+        border: "1px dotted silver",
+      },
       cursor: "pointer",
     },
   });

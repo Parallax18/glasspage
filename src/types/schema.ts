@@ -15,4 +15,4 @@ export interface IComponent {
   children?: IComponent[];
 }
 
-export type IComponentWithIndex = IComponent & { index: number };
+export type IComponentWithIndex = IComponent & { index?: number };

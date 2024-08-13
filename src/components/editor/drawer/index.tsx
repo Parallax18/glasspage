@@ -35,15 +35,13 @@ interface View {
 }
 
 const EditorDrawer = () => {
-  const { isOpen, onClose } = useEditorStore((state) => state);
-
   const {
     currentEditorDrawerView,
     setCurrentEditorDrawerView,
+    setFocusedComponent,
     componentInFocus,
   } = useEditorStore();
-  const [customizationData, setCustomizationData] =
-    useState<IComponentWithIndex>();
+
   const form = useFormContext<EditorForm>();
   const { append: selectTemplate } = useFieldArray({
     control: form.control,
@@ -74,8 +72,10 @@ const EditorDrawer = () => {
       component: (
         <AddedSections
           openEditView={(data: IComponentWithIndex) => {
+            console.log("from added", { data });
             setCurrentEditorDrawerView("customize");
-            setCustomizationData(data);
+            // setCustomizationData(data);
+            setFocusedComponent(data);
           }}
         />
       ),
@@ -105,7 +105,7 @@ const EditorDrawer = () => {
           </Flex>
         </Stack>
       ),
-      component: <CustomizeSection data={customizationData} />,
+      component: <CustomizeSection />,
     },
   };
 

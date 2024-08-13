@@ -1,5 +1,5 @@
 import { EditorDrawerViews } from "@/components/editor/drawer";
-import { IComponent } from "@/types/schema";
+import { IComponent, IComponentWithIndex } from "@/types/schema";
 import { create } from "zustand";
 
 export interface EditorState {
@@ -7,10 +7,11 @@ export interface EditorState {
   onOpen: () => void;
   onClose: () => void;
   toggle: () => void;
-  componentInFocus?: IComponent;
+  componentInFocus?: IComponentWithIndex;
   setFocusedComponent: (component: IComponent) => void;
   currentEditorDrawerView: EditorDrawerViews;
   setCurrentEditorDrawerView: (view: EditorDrawerViews) => void;
+  updateFocusedComponent: (itemToUpdate: Partial<IComponentWithIndex>) => void;
 }
 
 export const useEditorStore = create<EditorState>()((set) => ({
@@ -18,9 +19,16 @@ export const useEditorStore = create<EditorState>()((set) => ({
   onOpen: () => set(() => ({ isOpen: true })),
   onClose: () => set(() => ({ isOpen: false })),
   toggle: () => set((state) => ({ isOpen: !state.isOpen })),
-  setFocusedComponent: (component) =>
-    set(() => ({ componentInFocus: component })),
+  setFocusedComponent: (component) => {
+    console.log("store", { component });
+    set(() => ({ componentInFocus: component }));
+  },
   currentEditorDrawerView: "templates",
   setCurrentEditorDrawerView: (view) =>
     set(() => ({ currentEditorDrawerView: view })),
+  updateFocusedComponent: (itemToUpdate) =>
+    //  @ts-ignore - - todo: fix this partial type bug
+    set((state) => ({
+      componentInFocus: { ...state.componentInFocus, ...itemToUpdate },
+    })),
 }));

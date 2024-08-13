@@ -89,7 +89,6 @@ const AddedSections = (props: AddedSectionSidePaneProps) => {
                             cursor="pointer"
                             alignItems="center"
                             justifyContent="space-between"
-                            // ml={level * 4} // Indentation based on level
                           >
                             <MenuButton aria-label="Added Sections" flex={1}>
                               <Flex gap={2} alignItems="center">
