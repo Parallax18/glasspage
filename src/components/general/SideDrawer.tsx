@@ -25,7 +25,7 @@ const SideDrawer = (props: SideDrawerProps) => {
     <>
       <Drawer isOpen={isOpen} onClose={onClose} placement={"right"} size="md">
         <DrawerContent
-          bg={"#060606"}
+          bg={"bgColor"}
           borderLeft={"1px solid #131313"}
           zIndex={99999}
           w={"50rem"}

@@ -38,7 +38,7 @@ export const theme = extendTheme({
       800: "#0f1a3c",
       desc: "#667185",
     },
-    bg: "#141414",
+    bgColor: "#060606",
     dark: "#121212",
     borderColor: "#131313",
   },

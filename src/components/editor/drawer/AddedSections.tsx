@@ -106,9 +106,9 @@ const AddedSections = (props: AddedSectionSidePaneProps) => {
                             </MenuButton>
                             <DragHandleIcon color="white" cursor="grab" />
                           </Flex>
-                          <MenuList bg="#060606" border="1px solid #131313">
+                          <MenuList bg={"bgColor"} border="1px solid #131313">
                             <MenuItem
-                              bg="#060606"
+                              bg={"bgColor"}
                               color="lightgrey"
                               icon={<EditIcon />}
                               onClick={() => {
@@ -120,7 +120,7 @@ const AddedSections = (props: AddedSectionSidePaneProps) => {
                             <Popover placement="bottom-end" closeOnBlur>
                               <PopoverTrigger>
                                 <MenuItem
-                                  bg="#060606"
+                                  bg={"bgColor"}
                                   color="red.600"
                                   icon={<BiTrash size={16} />}
                                 >
@@ -128,7 +128,7 @@ const AddedSections = (props: AddedSectionSidePaneProps) => {
                                 </MenuItem>
                               </PopoverTrigger>
                               <PopoverContent
-                                bg="#060606"
+                                bg={"bgColor"}
                                 border="1px solid #131313"
                                 w="max"
                                 mt={2}
