@@ -54,24 +54,27 @@ export const TemplateCategory = ({
             </Flex>
           </AccordionButton>
 
-          <AccordionPanel pb={4}>
-            <SimpleGrid columns={{ base: 1, md: 3 }} w={"full"} gap={2}>
+          <AccordionPanel
+            pb={4}
+            maxH={250}
+            overflowY={"scroll"}
+            border={"1px"}
+            borderTop={0}
+          >
+            <SimpleGrid columns={{ base: 1, md: 1 }} w={"full"} gap={2}>
               {templates?.map((template) => (
                 <Stack
                   rounded={"base"}
                   key={template.id}
-                  // height={"32"}
                   bg={"black"}
                   p={2}
                   w={"full"}
                   cursor={"pointer"}
                   onClick={() => onSelectTemplate(template)}
                 >
-                  {/* <Flex gap={2}  w={"full"}> */}
                   <Box
                     h={"10rem"}
                     bg={"dimgray"}
-                    // h={"full"}
                     w={"full"}
                     rounded={"base"}
                     position={"relative"}
@@ -83,7 +86,7 @@ export const TemplateCategory = ({
                       objectFit="cover"
                     />
                   </Box>
-                  {/* </Flex> */}
+
                   <Text
                     fontSize={"sm"}
                     color={"lightgrey"}

@@ -17,7 +17,6 @@ const EmptyScreen = (props: EmptyScreenProps) => {
       position="relative"
       width="full"
       height="100vh"
-      //   bg={'dark'}
       bgGradient="linear(to-r, black, dark)"
       overflow="hidden"
     >
@@ -30,41 +29,14 @@ const EmptyScreen = (props: EmptyScreenProps) => {
         color="white"
       >
         <Box className="animate-fade-in-up">
-          {/* <Image
-            src="/placeholder.svg"
-            alt="Amazon Pay"
-            mx="auto"
-            width="8rem"
-            mb="6"
-          /> */}
-
           <Heading as="h1" size="2xl" fontWeight="bold" mb="4">
             You&apos;ve got a clean slate
           </Heading>
           <Text fontSize="lg" mb="8" color={"lightgray"}>
-            Customize templates to fit your brand, build your page
+            Select a template from the left panel to begin
           </Text>
         </Box>
-        <Box className="animate-fade-in-up" transitionDelay="0.3s">
-          <Button
-            bg="rosybrown"
-            color="black"
-            fontWeight="bold"
-            py="3"
-            px="8"
-            onClick={props.onOpen}
-          >
-            Start building
-          </Button>
-        </Box>
       </Box>
-      {/* <Box
-        position="absolute"
-        bottom="0"
-        width="full"
-        height="33%"
-        bgGradient="linear(to-t, #0072C6, transparent)"
-      /> */}
     </Box>
   );
 };

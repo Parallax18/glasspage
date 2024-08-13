@@ -25,23 +25,22 @@ const CustomizationForm = ({ index }: { index: number }) => {
 
   return (
     <Box color={"lightgray"}>
-      <Stack p="6" gap="4">
+      <Stack py="6" gap="4">
         <FormControl mb="4">
-          {/* <FormLabel
+          <FormLabel
             htmlFor="name"
             fontSize="sm"
-            fontWeight="medium"
+            fontWeight="light"
             color={"lightgrey"}
           >
             Content
-          </FormLabel> */}
+          </FormLabel>
           <Input
             id="name"
-            placeholder="Enter your name"
+            placeholder=""
             size="md"
             rounded="md"
             borderColor="borderColor"
-            // {...register(`page.${index}.name`)}
             value={form.page?.[index]?.name}
             onChange={(e) => setValue(`page.${index}.name`, e.target.value)}
             bg={"dark"}

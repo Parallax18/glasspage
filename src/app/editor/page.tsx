@@ -54,60 +54,55 @@ const Editor = () => {
     <Box>
       <FormProvider {...form}>
         <Form>
-          {onScreenSectionTemplates.length === 0 ? (
-            <EmptyScreen onOpen={onOpen} />
-          ) : (
-            <Box>
-              <Flex justify={"end"} position={"fixed"} right={0} p={5}>
-                <Button
-                  onClick={onOpen}
-                  variant={"outline"}
-                  color={"lightgray"}
-                  border={"1px solid #131313"}
-                  _hover={{ border: "1px solid rosybrown" }}
-                >
-                  Editor panel
-                </Button>
-              </Flex>
+          <Flex justifyContent={"space-between"} direction={"row-reverse"}>
+            <Box pl={"27%"} w={"full"}>
+              {onScreenSectionTemplates.length === 0 ? (
+                <EmptyScreen onOpen={onOpen} />
+              ) : (
+                <Box color={"white"}>
+                  <DragDropContext
+                    onDragEnd={(result) => handleDragEnd(result)}
+                  >
+                    <Droppable droppableId="editor">
+                      {(provided) => (
+                        <div
+                          ref={provided.innerRef}
+                          {...provided.droppableProps}
+                        >
+                          {onScreenSectionTemplates.map((section, index) => {
+                            console.log({ section });
+                            const MemoizedComponent = memo(RenderComponent);
 
-              <Box color={"white"}>
-                <DragDropContext onDragEnd={(result) => handleDragEnd(result)}>
-                  <Droppable droppableId="editor">
-                    {(provided) => (
-                      <div ref={provided.innerRef} {...provided.droppableProps}>
-                        {onScreenSectionTemplates.map((section, index) => {
-                          console.log({ section });
-                          const MemoizedComponent = memo(RenderComponent);
+                            return (
+                              <MemoizedComponent key={index} {...section} />
+                              // <Draggable
+                              //   key={`k-${index}`}
+                              //   draggableId={`k-${index}`}
+                              //   index={index}
+                              // >
+                              //   {(_provided) => (
+                              //     <div
+                              //       ref={_provided.innerRef}
+                              //       {..._provided.draggableProps}
+                              //       {..._provided.dragHandleProps}
+                              //     >
 
-                          return (
-                            <MemoizedComponent key={index} {...section} />
-                            // <Draggable
-                            //   key={`k-${index}`}
-                            //   draggableId={`k-${index}`}
-                            //   index={index}
-                            // >
-                            //   {(_provided) => (
-                            //     <div
-                            //       ref={_provided.innerRef}
-                            //       {..._provided.draggableProps}
-                            //       {..._provided.dragHandleProps}
-                            //     >
-
-                            //     </div>
-                            //   )}
-                            // </Draggable>
-                          );
-                        })}
-                        {provided.placeholder}
-                      </div>
-                    )}
-                  </Droppable>
-                </DragDropContext>
-              </Box>
+                              //     </div>
+                              //   )}
+                              // </Draggable>
+                            );
+                          })}
+                          {provided.placeholder}
+                        </div>
+                      )}
+                    </Droppable>
+                  </DragDropContext>
+                </Box>
+              )}
             </Box>
-          )}
 
-          <EditorDrawer />
+            <EditorDrawer />
+          </Flex>
         </Form>
       </FormProvider>
     </Box>

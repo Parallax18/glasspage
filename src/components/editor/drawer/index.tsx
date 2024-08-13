@@ -11,21 +11,28 @@ import {
 import React, { useState } from "react";
 import TemplatesDrawer from "./Templates";
 import AddedSections from "./AddedSections";
-import ComponentsDrawer from "./Components";
-import ElementsDrawer from "./Elements";
 import { useFieldArray, useFormContext, useWatch } from "react-hook-form";
 
-import { IComponent, IComponentWithIndex } from "@/types/schema";
+import { IComponentWithIndex } from "@/types/schema";
 import CustomizeSection from "./CustomizeSection";
-import { BiChevronLeft, BiPencil } from "react-icons/bi";
+import { BiChevronLeft } from "react-icons/bi";
 import { EditorForm } from "@/app/editor/page";
-import { useStore } from "zustand";
+
 import { useEditorStore } from "@/store/editor-store";
+
+import { LuLayoutTemplate } from "react-icons/lu";
+import { RxSection } from "react-icons/rx";
 
 export type EditorDrawerViews = "sections" | "templates" | "customize";
 // | "elements"
 // | "components"
 interface EditorDrawer extends Omit<SideDrawerProps, "title" | "children"> {}
+
+interface View {
+  header: string | React.JSX.Element;
+  icon?: React.JSX.Element;
+  component: React.JSX.Element;
+}
 
 const EditorDrawer = () => {
   const { isOpen, onClose } = useEditorStore((state) => state);
@@ -55,13 +62,15 @@ const EditorDrawer = () => {
     );
   };
 
-  const views = {
+  const views: Record<EditorDrawerViews, View> = {
     templates: {
       header: "Browse Templates",
+      icon: <LuLayoutTemplate color="white" size={16} />,
       component: <TemplatesDrawer onSelectTemplate={selectTemplate} />,
     },
     sections: {
       header: "Your Sections",
+      icon: <RxSection color="white" size={16} />,
       component: (
         <AddedSections
           openEditView={(data: IComponentWithIndex) => {
@@ -77,25 +86,18 @@ const EditorDrawer = () => {
     customize: {
       header: (
         <Stack gap={5}>
-          <Button
-            paddingX={2}
-            py={0}
+          <Flex
             alignItems={"center"}
             cursor={"pointer"}
             gap={1}
-            w={"max"}
-            display={"flex"}
-            justifyContent={"center"}
             onClick={() => setCurrentEditorDrawerView("sections")}
           >
-            <BiChevronLeft size={24} />
-            <Text fontSize={"sm"}>Back</Text>
-          </Button>
-          <Flex alignItems={"center"} cursor={"pointer"} gap={4} w={"80%"}>
+            <BiChevronLeft size={24} color={"lightgray"} />
             <Text
               flex={1}
               maxW={"100%"}
               textTransform={"capitalize"}
+              color={"lightgray"}
               isTruncated
             >
               {getHeader()}
@@ -108,67 +110,77 @@ const EditorDrawer = () => {
   };
 
   return (
-    <SideDrawer
-      isOpen={isOpen}
-      onClose={onClose}
-      title={
-        <Heading color={"white"} fontSize={"base"}>
-          {views[currentEditorDrawerView].header}
-        </Heading>
-      }
-      footer={
+    <>
+      <Box
+        position={"fixed"}
+        left={0}
+        borderRight={"1px solid"}
+        borderColor={"borderColor"}
+        w={"27%"}
+        h={"100vh"}
+        overflow={"scroll"}
+      >
         <Flex
-          alignItems="center"
-          justifyContent="start"
-          px={0}
-          py={2}
-          gap={4}
-          w={"full"}
+          h={"full"}
+          justifyContent={"space-between"}
+          direction={"row-reverse"}
+          position={"relative"}
         >
-          {Object.keys(views)
-            .filter((view) => view !== "customize")
-            .map((view) => (
-              <Button
-                key={view}
-                bg={currentEditorDrawerView === view ? "rosybrown" : ""}
-                color={currentEditorDrawerView === view ? "black" : "lightgray"}
-                onClick={() =>
-                  setCurrentEditorDrawerView(view as EditorDrawerViews)
-                }
-                py={2}
-                fontSize={"sm"}
-                textTransform={"capitalize"}
-              >
-                {views[view as EditorDrawerViews].header}
-                {view === "sections" ? (
-                  <Flex
-                    ml={2}
-                    p={1}
-                    bg={"black"}
-                    h={4}
-                    w={4}
-                    color={"white"}
-                    rounded={"full"}
-                    fontSize={"xs"}
-                    justifyContent={"center"}
-                    alignItems={"center"}
-                  >
-                    {fields.length}
-                  </Flex>
-                ) : null}
-              </Button>
-            ))}
-          {/*
-          <Button w={"max"} bg={"green.600"} rounded={"base"}>
-            Save Changes
-          </Button> */}
+          <Stack w={"80%"} px={2} py={3}>
+            <Heading
+              color={"white"}
+              fontSize={"base"}
+              position={"fixed"}
+              w={"full"}
+              // maxW={"250px"}
+              bg={"bgColor"}
+              zIndex={2}
+              top={0}
+              py={3}
+              isTruncated
+            >
+              {views[currentEditorDrawerView].header}
+            </Heading>
+            <Box py={10}>{views[currentEditorDrawerView].component}</Box>
+          </Stack>
+          <Stack
+            w={16}
+            h={"full"}
+            alignItems="center"
+            justifyContent="start"
+            bg={"bgColor"}
+            borderRight={"1px solid"}
+            borderColor={"borderColor"}
+            position={"fixed"}
+            left={0}
+            pt={2}
+            gap={4}
+          >
+            {Object.keys(views)
+              .filter((view) => view !== "customize")
+              .map((view) => (
+                <Button
+                  key={view}
+                  bg={currentEditorDrawerView === view ? "rosybrown" : ""}
+                  color={
+                    currentEditorDrawerView === view ? "black" : "lightgray"
+                  }
+                  onClick={() =>
+                    setCurrentEditorDrawerView(view as EditorDrawerViews)
+                  }
+                  py={3}
+                  fontSize={"sm"}
+                  textTransform={"capitalize"}
+                  rounded={"none"}
+                  w={"full"}
+                >
+                  {views[view as EditorDrawerViews].icon}
+                </Button>
+              ))}
+          </Stack>
         </Flex>
-      }
-    >
-      <Box position={"relative"}>
-        <>{views[currentEditorDrawerView].component}</>
       </Box>
-    </SideDrawer>
+    </>
   );
 };
 

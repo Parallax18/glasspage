@@ -27,8 +27,8 @@ const SideDrawer = (props: SideDrawerProps) => {
         <DrawerContent
           bg={"bgColor"}
           borderLeft={"1px solid #131313"}
-          zIndex={99999}
           w={"50rem"}
+          zIndex={99999}
         >
           <DrawerCloseButton />
           <DrawerHeader>{title}</DrawerHeader>
