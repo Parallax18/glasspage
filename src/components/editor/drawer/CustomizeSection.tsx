@@ -49,7 +49,10 @@ const CustomizeSection = ({ data }: { data?: IComponentWithIndex }) => {
                       maxW="250px"
                       textTransform={"capitalize"}
                     >
-                      {child.innerText || child.type}
+                      {child.innerText ||
+                        (child.type === "card"
+                          ? `${child.children?.[0].type}s container`
+                          : child.type)}
                     </Text>
                     {child.level === 0 && <BsDash color="white" />}
                     <Text

@@ -1,5 +1,13 @@
 import SideDrawer, { SideDrawerProps } from "@/components/general/SideDrawer";
-import { Box, Button, Circle, Flex, Heading, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Circle,
+  Flex,
+  Heading,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import React, { useState } from "react";
 import TemplatesDrawer from "./Templates";
 import AddedSections from "./AddedSections";
@@ -9,18 +17,24 @@ import { useFieldArray, useFormContext, useWatch } from "react-hook-form";
 
 import { IComponent, IComponentWithIndex } from "@/types/schema";
 import CustomizeSection from "./CustomizeSection";
-import { BiChevronLeft } from "react-icons/bi";
+import { BiChevronLeft, BiPencil } from "react-icons/bi";
 import { EditorForm } from "@/app/editor/page";
+import { useStore } from "zustand";
+import { useEditorStore } from "@/store/editor-store";
 
 export type EditorDrawerViews = "sections" | "templates" | "customize";
 // | "elements"
 // | "components"
 interface EditorDrawer extends Omit<SideDrawerProps, "title" | "children"> {}
 
-const EditorDrawer = (props: EditorDrawer) => {
-  const { isOpen, onClose } = props;
-  const [currentEditorDrawerView, setCurrentEditorDrawerView] =
-    useState<EditorDrawerViews>("templates");
+const EditorDrawer = () => {
+  const { isOpen, onClose } = useEditorStore((state) => state);
+
+  const {
+    currentEditorDrawerView,
+    setCurrentEditorDrawerView,
+    componentInFocus,
+  } = useEditorStore();
   const [customizationData, setCustomizationData] =
     useState<IComponentWithIndex>();
   const form = useFormContext<EditorForm>();
@@ -35,9 +49,9 @@ const EditorDrawer = (props: EditorDrawer) => {
 
   const getHeader = () => {
     return (
-      fields?.[Number(customizationData?.index)]?.name ||
-      fields?.[Number(customizationData?.index)]?.type ||
-      fields?.[Number(customizationData?.index)]?.id
+      componentInFocus?.innerText ||
+      componentInFocus?.name ||
+      componentInFocus?.type
     );
   };
 
@@ -62,15 +76,32 @@ const EditorDrawer = (props: EditorDrawer) => {
     // elements: { header: "Elements", component: <ElementsDrawer /> },
     customize: {
       header: (
-        <Flex
-          alignItems={"center"}
-          cursor={"pointer"}
-          w={"max"}
-          onClick={() => setCurrentEditorDrawerView("sections")}
-        >
-          <BiChevronLeft color="white" size={24} />
-          <Text>{getHeader()}</Text>
-        </Flex>
+        <Stack gap={5}>
+          <Button
+            paddingX={2}
+            py={0}
+            alignItems={"center"}
+            cursor={"pointer"}
+            gap={1}
+            w={"max"}
+            display={"flex"}
+            justifyContent={"center"}
+            onClick={() => setCurrentEditorDrawerView("sections")}
+          >
+            <BiChevronLeft size={24} />
+            <Text fontSize={"sm"}>Back</Text>
+          </Button>
+          <Flex alignItems={"center"} cursor={"pointer"} gap={4} w={"80%"}>
+            <Text
+              flex={1}
+              maxW={"100%"}
+              textTransform={"capitalize"}
+              isTruncated
+            >
+              {getHeader()}
+            </Text>
+          </Flex>
+        </Stack>
       ),
       component: <CustomizeSection data={customizationData} />,
     },
@@ -127,7 +158,7 @@ const EditorDrawer = (props: EditorDrawer) => {
                 ) : null}
               </Button>
             ))}
-          {/* 
+          {/*
           <Button w={"max"} bg={"green.600"} rounded={"base"}>
             Save Changes
           </Button> */}
