@@ -46,7 +46,7 @@ const CustomizeSection = () => {
     update,
   } = useFieldArray({
     control,
-    name: `page.${componentInFocus?.index as number}.children`,
+    name: `page`,
   });
 
   const handleDragEnd = (result: DropResult) => {
@@ -54,7 +54,7 @@ const CustomizeSection = () => {
       const index = componentInFocus?.index as number;
       onDragEnd({
         result,
-        list: addedTemplates as IComponent[],
+        list: addedTemplates[index].children as IComponent[],
         callback: (reorderedChildren) => {
           update(index, {
             ...addedTemplates[index],
