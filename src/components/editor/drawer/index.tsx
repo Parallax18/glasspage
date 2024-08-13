@@ -154,14 +154,20 @@ const EditorDrawer = () => {
             position={"fixed"}
             left={0}
             pt={2}
-            gap={4}
+            gap={0}
           >
             {Object.keys(views)
               .filter((view) => view !== "customize")
               .map((view) => (
                 <Button
                   key={view}
-                  bg={currentEditorDrawerView === view ? "rosybrown" : ""}
+                  bg={"none"}
+                  borderLeft={
+                    currentEditorDrawerView === view ? "3px solid" : ""
+                  }
+                  borderLeftColor={
+                    currentEditorDrawerView === view ? "rosybrown" : ""
+                  }
                   color={
                     currentEditorDrawerView === view ? "black" : "lightgray"
                   }
