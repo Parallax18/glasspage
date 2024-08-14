@@ -7,6 +7,7 @@ import {
   Heading,
   Stack,
   Text,
+  VStack,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import TemplatesDrawer from "./Templates";
@@ -20,10 +21,15 @@ import { EditorForm } from "@/app/editor/page";
 
 import { useEditorStore } from "@/store/editor-store";
 
-import { LuLayoutTemplate } from "react-icons/lu";
-import { RxSection } from "react-icons/rx";
+import { LuComponent, LuLayoutTemplate } from "react-icons/lu";
+import { RxComponent1, RxSection } from "react-icons/rx";
+import ComponentsDrawer from "./Components";
 
-export type EditorDrawerViews = "sections" | "templates" | "customize";
+export type EditorDrawerViews =
+  | "sections"
+  | "templates"
+  | "customize"
+  | "components";
 // | "elements"
 // | "components"
 interface EditorDrawer extends Omit<SideDrawerProps, "title" | "children"> {}
@@ -80,7 +86,16 @@ const EditorDrawer = () => {
         />
       ),
     },
-    // components: { header: "Components", component: <ComponentsDrawer /> },
+    components: {
+      header: "Your Components",
+      icon: <RxComponent1 color="white" size={16} />,
+      component: <ComponentsDrawer />,
+    },
+    // forms: {
+    //   header: "Forms",
+    //   icon: <RxComponent1 color="white" size={16} />,
+    //   component: <ComponentsDrawer />,
+    // },
 
     // elements: { header: "Elements", component: <ElementsDrawer /> },
     customize: {
@@ -169,7 +184,7 @@ const EditorDrawer = () => {
                     currentEditorDrawerView === view ? "rosybrown" : ""
                   }
                   color={
-                    currentEditorDrawerView === view ? "black" : "lightgray"
+                    currentEditorDrawerView === view ? "white" : "lightgray"
                   }
                   onClick={() =>
                     setCurrentEditorDrawerView(view as EditorDrawerViews)
@@ -180,7 +195,10 @@ const EditorDrawer = () => {
                   rounded={"none"}
                   w={"full"}
                 >
-                  {views[view as EditorDrawerViews].icon}
+                  <VStack>
+                    {views[view as EditorDrawerViews].icon}
+                    <Text fontSize={"8px"}>{view}</Text>
+                  </VStack>
                 </Button>
               ))}
           </Stack>
