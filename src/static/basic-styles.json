@@ -1,0 +1,233 @@
+[
+  {
+    "id": "648a2c4f47b9c31f57c6e3e1",
+    "name": "Card Basic Style",
+    "variantName": "default",
+    "classes": {
+      "light": "p-5 rounded-lg shadow-md",
+      "dark": "p-5 rounded-lg shadow-lg",
+      "neutral": "p-5 rounded-lg"
+    },
+    "isDefault": true
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e4f1",
+    "name": "Card Basic Style",
+    "variantName": "outlined",
+    "classes": {
+      "light": "p-5 rounded-lg border-2 border-gray-300 shadow-sm",
+      "dark": "p-5 rounded-lg border-2 border-gray-600 shadow-md",
+      "neutral": "p-5 rounded-lg border-2 shadow-sm"
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e4f2",
+    "name": "Card Basic Style",
+    "variantName": "flat",
+    "classes": {
+      "light": "p-5 rounded-none shadow-none",
+      "dark": "p-5 rounded-none shadow-none",
+      "neutral": "p-5 rounded-none"
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e3e2",
+    "name": "Card Content Style",
+    "variantName": "default",
+    "classes": {
+      "light": "p-4",
+      "dark": "p-4",
+      "neutral": "p-4"
+    },
+    "isDefault": true
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e4f3",
+    "name": "Card Content Style",
+    "variantName": "compact",
+    "classes": {
+      "light": "p-2",
+      "dark": "p-2",
+      "neutral": "p-2"
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e4f4",
+    "name": "Card Content Style",
+    "variantName": "spacious",
+    "classes": {
+      "light": "p-6",
+      "dark": "p-6",
+      "neutral": "p-6"
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e3e3",
+    "name": "Card Actions Style",
+    "variantName": "default",
+    "classes": {
+      "light": "flex justify-end space-x-2 mt-4",
+      "dark": "flex justify-end space-x-2 mt-4",
+      "neutral": "flex justify-end space-x-2 mt-4"
+    },
+    "isDefault": true
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e4f5",
+    "name": "Card Actions Style",
+    "variantName": "centered",
+    "classes": {
+      "light": "flex justify-center space-x-2 mt-4",
+      "dark": "flex justify-center space-x-2 mt-4",
+      "neutral": "flex justify-center space-x-2 mt-4"
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e4f6",
+    "name": "Card Actions Style",
+    "variantName": "spaced-between",
+    "classes": {
+      "light": "flex justify-between space-x-2 mt-4",
+      "dark": "flex justify-between space-x-2 mt-4",
+      "neutral": "flex justify-between space-x-2 mt-4"
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e3e4",
+    "name": "Card Title Style",
+    "variantName": "default",
+    "classes": {
+      "light": "text-xl font-bold mb-2",
+      "dark": "text-xl font-bold mb-2",
+      "neutral": "text-xl font-bold mb-2"
+    },
+    "isDefault": true
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e4f7",
+    "name": "Card Title Style",
+    "variantName": "uppercase",
+    "classes": {
+      "light": "text-xl font-bold mb-2 uppercase",
+      "dark": "text-xl font-bold mb-2 uppercase",
+      "neutral": "text-xl font-bold mb-2 uppercase"
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e4f8",
+    "name": "Card Title Style",
+    "variantName": "italic",
+    "classes": {
+      "light": "text-xl font-bold mb-2 italic",
+      "dark": "text-xl font-bold mb-2 italic",
+      "neutral": "text-xl font-bold mb-2 italic"
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e3e5",
+    "name": "Card Body Style",
+    "variantName": "default",
+    "classes": {
+      "light": "text-sm text-gray-700",
+      "dark": "text-sm text-gray-300",
+      "neutral": "text-sm"
+    },
+    "isDefault": true
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e4f9",
+    "name": "Card Body Style",
+    "variantName": "highlighted",
+    "classes": {
+      "light": "text-sm text-blue-700 bg-blue-100 p-2 rounded",
+      "dark": "text-sm text-blue-300 bg-blue-600 p-2 rounded",
+      "neutral": "text-sm bg-blue-100 p-2 rounded"
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e500",
+    "name": "Card Body Style",
+    "variantName": "muted",
+    "classes": {
+      "light": "text-sm text-gray-500",
+      "dark": "text-sm text-gray-400",
+      "neutral": "text-sm"
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e3e6",
+    "name": "Primary Button Style",
+    "variantName": "default",
+    "classes": {
+      "light": "bg-blue-500 text-white px-4 py-2 rounded",
+      "dark": "bg-blue-600 text-white px-4 py-2 rounded",
+      "neutral": "px-4 py-2 rounded"
+    },
+    "isDefault": true
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e501",
+    "name": "Primary Button Style",
+    "variantName": "outline",
+    "classes": {
+      "light": "bg-transparent border-2 border-blue-500 text-blue-500 px-4 py-2 rounded",
+      "dark": "bg-transparent border-2 border-blue-600 text-blue-600 px-4 py-2 rounded",
+      "neutral": "border-2 px-4 py-2 rounded"
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e502",
+    "name": "Primary Button Style",
+    "variantName": "flat",
+    "classes": {
+      "light": "bg-blue-500 text-white px-4 py-2 rounded-none",
+      "dark": "bg-blue-600 text-white px-4 py-2 rounded-none",
+      "neutral": "px-4 py-2 rounded-none"
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e3e7",
+    "name": "Secondary Button Style",
+    "variantName": "default",
+    "classes": {
+      "light": "bg-gray-500 text-white px-4 py-2 rounded",
+      "dark": "bg-gray-600 text-white px-4 py-2 rounded",
+      "neutral": "px-4 py-2 rounded"
+    },
+    "isDefault": true
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e503",
+    "name": "Secondary Button Style",
+    "variantName": "outline",
+    "classes": {
+      "light": "bg-transparent border-2 border-gray-500 text-gray-500 px-4 py-2 rounded",
+      "dark": "bg-transparent border-2 border-gray-600 text-gray-600 px-4 py-2 rounded",
+      "neutral": "border-2 px-4 py-2 rounded"
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e504",
+    "name": "Secondary Button Style",
+    "variantName": "ghost",
+    "classes": {
+      "light": "bg-transparent text-gray-500 px-4 py-2",
+      "dark": "bg-transparent text-gray-600 px-4 py-2",
+      "neutral": "px-4 py-2"
+    },
+    "isDefault": false
+  }
+]
