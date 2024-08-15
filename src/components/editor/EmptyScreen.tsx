@@ -1,3 +1,5 @@
+import { componentsJson } from "@/static/components";
+import { useComponentEditorStore } from "@/store/component-editor-store";
 import { useEditorStore } from "@/store/editor-store";
 import {
   Box,
@@ -11,12 +13,8 @@ import {
 } from "@chakra-ui/react";
 import { RxComponent1 } from "react-icons/rx";
 
-interface EmptyScreenProps {
-  onOpen: UseDisclosureProps["onOpen"];
-}
-
-const EmptyScreen = (props: EmptyScreenProps) => {
-  const { onOpen } = useEditorStore();
+const EmptyScreen = () => {
+  const { onOpen, setFocusedComponent } = useComponentEditorStore();
   return (
     <Box
       position="relative"
@@ -43,7 +41,11 @@ const EmptyScreen = (props: EmptyScreenProps) => {
           <Button
             bg={"rosybrown"}
             color={"black"}
-            onClick={onOpen}
+            onClick={() => {
+              // temporary
+              setFocusedComponent(componentsJson[0]);
+              onOpen();
+            }}
             py={3}
             fontSize={"sm"}
             rounded={"none"}

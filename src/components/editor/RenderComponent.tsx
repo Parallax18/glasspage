@@ -17,7 +17,7 @@ import {
   chakra,
 } from "@chakra-ui/react";
 
-import { IComponent } from "@/types/schema";
+import { ITemplate } from "@/types/schema";
 import { useEditorStore } from "@/store/editor-store";
 
 const componentMap: Record<string, React.ComponentType<any>> = {
@@ -36,7 +36,7 @@ const componentMap: Record<string, React.ComponentType<any>> = {
   Link,
 };
 
-const RenderComponent = (component: IComponent) => {
+const RenderComponent = (component: ITemplate) => {
   const {
     onOpen,
     setFocusedComponent,
@@ -60,7 +60,7 @@ const RenderComponent = (component: IComponent) => {
   });
 
   // todo: fix type
-  const handleComponentSelect = (e: any, component: IComponent) => {
+  const handleComponentSelect = (e: any, component: ITemplate) => {
     onOpen();
     console.log({ component });
     const focusedComponent =

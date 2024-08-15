@@ -35,7 +35,6 @@ const SideDrawer = (props: SideDrawerProps) => {
           bg={"bgColor"}
           borderLeft={"1px solid "}
           borderColor={"borderColor"}
-          w={"50rem"}
           zIndex={99999}
         >
           <DrawerCloseButton color={"lightgrey"} />

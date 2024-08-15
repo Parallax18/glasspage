@@ -1,7 +1,7 @@
 "use client";
 
 import { templates } from "@/static/templates";
-import { IComponent } from "@/types/schema";
+import { ITemplate } from "@/types/schema";
 
 import {
   Box,
@@ -25,8 +25,8 @@ export const TemplateCategory = ({
   onSelectTemplate,
 }: {
   name: string;
-  templates?: IComponent[];
-  onSelectTemplate: (section: IComponent) => void;
+  templates?: ITemplate[];
+  onSelectTemplate: (section: ITemplate) => void;
 }) => {
   return (
     <>
@@ -109,7 +109,7 @@ export const TemplateCategory = ({
 const TemplatesDrawer = ({
   onSelectTemplate,
 }: {
-  onSelectTemplate: (section: IComponent) => void;
+  onSelectTemplate: (section: ITemplate) => void;
 }) => {
   const groupTemplatesByCategory = () => {
     return templates.reduce((acc, template) => {
@@ -124,7 +124,7 @@ const TemplatesDrawer = ({
       acc[template.category].push(template);
 
       return acc;
-    }, {} as Record<string, IComponent[]>);
+    }, {} as Record<string, ITemplate[]>);
   };
   return (
     <Flex>

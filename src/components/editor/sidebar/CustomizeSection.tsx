@@ -1,4 +1,4 @@
-import { IComponent, IComponentWithIndex } from "@/types/schema";
+import { ITemplate, ITemplateWithIndex } from "@/types/schema";
 import { DragHandleIcon, EditIcon } from "@chakra-ui/icons";
 import {
   Accordion,
@@ -54,7 +54,7 @@ const CustomizeSection = () => {
       const index = componentInFocus?.index as number;
       onDragEnd({
         result,
-        list: addedTemplates[index].children as IComponent[],
+        list: addedTemplates[index].children as ITemplate[],
         callback: (reorderedChildren) => {
           update(index, {
             ...addedTemplates[index],
@@ -174,7 +174,7 @@ const CustomizeSection = () => {
 
 export default CustomizeSection;
 
-const Item = ({ child }: { child: IComponentWithIndex }) => {
+const Item = ({ child }: { child: ITemplateWithIndex }) => {
   return (
     <Flex
       w={"full"}

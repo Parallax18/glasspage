@@ -21,7 +21,7 @@ import {
 } from "@chakra-ui/react";
 import { DragHandleIcon, EditIcon } from "@chakra-ui/icons";
 import { BiTrash } from "react-icons/bi";
-import { IComponentWithIndex } from "@/types/schema";
+import { ITemplateWithIndex } from "@/types/schema";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import { EditorForm } from "@/app/editor/page";
 import {
@@ -34,7 +34,7 @@ import { onDragEnd } from "@/utils/dnd-utils";
 
 interface AddedSectionSidePaneProps {
   level?: number;
-  openEditView: (data: IComponentWithIndex) => void;
+  openEditView: (data: ITemplateWithIndex) => void;
 }
 
 const AddedSections = (props: AddedSectionSidePaneProps) => {

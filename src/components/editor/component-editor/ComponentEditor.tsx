@@ -16,19 +16,27 @@ import StyleEditor from "./StyleEditor";
 import RenderComponent from "../_RenderComponent";
 import { useFormContext, useWatch } from "react-hook-form";
 import { EditorForm } from "@/app/editor/page";
+import { useComponentEditorStore } from "@/store/component-editor-store";
 
 const ComponentEditor = () => {
   const { control } = useFormContext<EditorForm>();
   const addedComponents = useWatch({ control, name: "components" });
-  console.log(addedComponents);
+  const { componentInFocus } = useComponentEditorStore();
+
+  console.log(addedComponents, componentInFocus);
   return (
-    <Flex h={"full"} justifyContent={"space-between"}>
+    <Flex h={"85dvh"} gap={3} justifyContent={"space-between"}>
       <Center bg={"dark"} h={"full"} w={"50%"}>
-        {/* <button className={cn(style?.light)}>Test this button</button> */}
-        <RenderComponent data={addedComponents[1]} />
+        <RenderComponent
+          data={
+            addedComponents.find(
+              (component) => component.name === componentInFocus?.name
+            )?.structure
+          }
+        />
       </Center>
       <Tabs
-        border={"1px solid"}
+        h={"full"}
         w={"50%"}
         position="relative"
         variant="unstyled"
@@ -46,7 +54,7 @@ const ComponentEditor = () => {
           bg="rosybrown"
           borderRadius="1px"
         />
-        <TabPanels>
+        <TabPanels h={"full"}>
           <TabPanel>
             <StyleEditor />
             {/*TODO:  add a save and cancel button. the save button, formats to proper structure and updates db, the cancel button, formats and save to state */}

@@ -1,15 +1,15 @@
 import React from "react";
 import { BaseComponentStyles } from "@/static/components";
 import { cn } from "@/utils/cn";
-import { ComponentStruct } from "@/types/schema";
+import { ComponentStruct, IComponent } from "@/types/schema";
 
 interface RenderComponentProps {
-  data: ComponentStruct[];
+  data?: IComponent["structure"];
 }
 
 const renderComponent = (
   component: ComponentStruct | undefined,
-  json: ComponentStruct[]
+  json?: IComponent["structure"]
 ): JSX.Element | null => {
   if (!component) return null;
 
@@ -27,7 +27,7 @@ const renderComponent = (
 
   // Retrieve the children components based on their IDs
   const childrenComponents = component.childrenIds?.map((id) =>
-    json.find((item) => item.id === id)
+    json?.find((item) => item.id === id)
   );
 
   const children = childrenComponents?.map((child) =>
@@ -53,16 +53,16 @@ const RenderComponent: React.FC<RenderComponentProps> = ({ data }) => {
   const flattenedData = data;
 
   // Identify and render only the root components (those with no parentId)
-  const rootComponents = flattenedData.filter((item) => !item.parentId);
+  const rootComponents = flattenedData?.filter((item) => !item.parentId);
 
-  if (rootComponents.length === 0) {
+  if (rootComponents?.length === 0) {
     console.warn("No root components found for rendering");
     return <div>No components to render</div>;
   }
 
   return (
     <>
-      {rootComponents.map((component) =>
+      {rootComponents?.map((component) =>
         renderComponent(component, flattenedData)
       )}
     </>

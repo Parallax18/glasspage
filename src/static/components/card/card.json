@@ -1,64 +1,67 @@
-[
-  {
-    "id": "648a2c4f47b9c31f57c6e3c1",
-    "tag": "div",
-    "name": "Card",
-    "styleEntityId": "648a2c4f47b9c31f57c6e3e1",
-    "level": 0,
-    "childrenIds": ["648a2c4f47b9c31f57c6e3c2", "648a2c4f47b9c31f57c6e3c3"]
-  },
-  {
-    "id": "648a2c4f47b9c31f57c6e3c2",
-    "tag": "div",
-    "name": "Card Content",
-    "styleEntityId": "648a2c4f47b9c31f57c6e3e2",
-    "level": 1,
-    "parentId": "648a2c4f47b9c31f57c6e3c1",
-    "childrenIds": ["648a2c4f47b9c31f57c6e3c4", "648a2c4f47b9c31f57c6e3c5"]
-  },
-  {
-    "id": "648a2c4f47b9c31f57c6e3c3",
-    "tag": "div",
-    "name": "Card Actions",
-    "styleEntityId": "648a2c4f47b9c31f57c6e3e3",
-    "level": 1,
-    "parentId": "648a2c4f47b9c31f57c6e3c1",
-    "childrenIds": ["648a2c4f47b9c31f57c6e3c6", "648a2c4f47b9c31f57c6e3c7"]
-  },
-  {
-    "id": "648a2c4f47b9c31f57c6e3c4",
-    "tag": "h3",
-    "name": "Card Title",
-    "styleEntityId": "648a2c4f47b9c31f57c6e3e4",
-    "innerText": "Card Title",
-    "level": 2,
-    "parentId": "648a2c4f47b9c31f57c6e3c2"
-  },
-  {
-    "id": "648a2c4f47b9c31f57c6e3c5",
-    "tag": "p",
-    "name": "Card Body",
-    "styleEntityId": "648a2c4f47b9c31f57c6e3e5",
-    "innerText": "Card body text goes here.",
-    "level": 2,
-    "parentId": "648a2c4f47b9c31f57c6e3c2"
-  },
-  {
-    "id": "648a2c4f47b9c31f57c6e3c6",
-    "tag": "button",
-    "name": "Primary Button",
-    "styleEntityId": "648a2c4f47b9c31f57c6e3e6",
-    "innerText": "Primary",
-    "level": 2,
-    "parentId": "648a2c4f47b9c31f57c6e3c3"
-  },
-  {
-    "id": "648a2c4f47b9c31f57c6e3c7",
-    "tag": "button",
-    "name": "Secondary Button",
-    "styleEntityId": "648a2c4f47b9c31f57c6e3e7",
-    "innerText": "Secondary",
-    "level": 2,
-    "parentId": "648a2c4f47b9c31f57c6e3c3"
-  }
-]
+{
+  "name": "card",
+  "structure": [
+    {
+      "id": "648a2c4f47b9c31f57c6e3c1",
+      "tag": "div",
+      "name": "Card",
+      "styleEntityId": "648a2c4f47b9c31f57c6e3e1",
+      "level": 0,
+      "childrenIds": ["648a2c4f47b9c31f57c6e3c2", "648a2c4f47b9c31f57c6e3c3"]
+    },
+    {
+      "id": "648a2c4f47b9c31f57c6e3c2",
+      "tag": "div",
+      "name": "Card Content",
+      "styleEntityId": "648a2c4f47b9c31f57c6e3e2",
+      "level": 1,
+      "parentId": "648a2c4f47b9c31f57c6e3c1",
+      "childrenIds": ["648a2c4f47b9c31f57c6e3c4", "648a2c4f47b9c31f57c6e3c5"]
+    },
+    {
+      "id": "648a2c4f47b9c31f57c6e3c3",
+      "tag": "div",
+      "name": "Card Actions",
+      "styleEntityId": "648a2c4f47b9c31f57c6e3e3",
+      "level": 1,
+      "parentId": "648a2c4f47b9c31f57c6e3c1",
+      "childrenIds": ["648a2c4f47b9c31f57c6e3c6", "648a2c4f47b9c31f57c6e3c7"]
+    },
+    {
+      "id": "648a2c4f47b9c31f57c6e3c4",
+      "tag": "h3",
+      "name": "Card Title",
+      "styleEntityId": "648a2c4f47b9c31f57c6e3e4",
+      "innerText": "Card Title",
+      "level": 2,
+      "parentId": "648a2c4f47b9c31f57c6e3c2"
+    },
+    {
+      "id": "648a2c4f47b9c31f57c6e3c5",
+      "tag": "p",
+      "name": "Card Body",
+      "styleEntityId": "648a2c4f47b9c31f57c6e3e5",
+      "innerText": "Card body text goes here.",
+      "level": 2,
+      "parentId": "648a2c4f47b9c31f57c6e3c2"
+    },
+    {
+      "id": "648a2c4f47b9c31f57c6e3c6",
+      "tag": "button",
+      "name": "Primary Button",
+      "styleEntityId": "648a2c4f47b9c31f57c6e3e6",
+      "innerText": "Primary",
+      "level": 2,
+      "parentId": "648a2c4f47b9c31f57c6e3c3"
+    },
+    {
+      "id": "648a2c4f47b9c31f57c6e3c7",
+      "tag": "button",
+      "name": "Secondary Button",
+      "styleEntityId": "648a2c4f47b9c31f57c6e3e7",
+      "innerText": "Secondary",
+      "level": 2,
+      "parentId": "648a2c4f47b9c31f57c6e3c3"
+    }
+  ]
+}

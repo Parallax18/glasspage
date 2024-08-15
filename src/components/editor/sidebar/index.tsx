@@ -14,7 +14,7 @@ import TemplatesDrawer from "./Templates";
 import AddedSections from "./AddedSections";
 import { useFieldArray, useFormContext, useWatch } from "react-hook-form";
 
-import { IComponentWithIndex } from "@/types/schema";
+import { ITemplateWithIndex } from "@/types/schema";
 import CustomizeSection from "./CustomizeSection";
 import { BiChevronLeft } from "react-icons/bi";
 import { EditorForm } from "@/app/editor/page";
@@ -82,7 +82,7 @@ const EditorDrawer = () => {
       icon: <RxSection color="white" size={16} />,
       component: (
         <AddedSections
-          openEditView={(data: IComponentWithIndex) => {
+          openEditView={(data: ITemplateWithIndex) => {
             console.log("from added", { data });
             setCurrentEditorDrawerView("customize");
             setFocusedComponent(data);

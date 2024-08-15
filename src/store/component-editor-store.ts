@@ -1,4 +1,4 @@
-import { ComponentStruct } from "@/types/schema";
+import { ComponentStruct, IComponent } from "@/types/schema";
 import { create } from "zustand";
 
 export interface ComponentEditorState {
@@ -6,9 +6,8 @@ export interface ComponentEditorState {
   onOpen: () => void;
   onClose: () => void;
   toggle: () => void;
-  componentInFocus?: ComponentStruct;
-  setFocusedComponent: (component: ComponentStruct) => void;
-  updateFocusedComponent: (itemToUpdate: Partial<ComponentStruct>) => void;
+  componentInFocus?: IComponent;
+  setFocusedComponent: (component: IComponent) => void;
 }
 
 export const useComponentEditorStore = create<ComponentEditorState>()(
@@ -21,10 +20,5 @@ export const useComponentEditorStore = create<ComponentEditorState>()(
       console.log("store", { component });
       set(() => ({ componentInFocus: component }));
     },
-    updateFocusedComponent: (itemToUpdate) =>
-      //  @ts-ignore - - todo: fix this partial type bug
-      set((state) => ({
-        componentInFocus: { ...state.componentInFocus, ...itemToUpdate },
-      })),
   })
 );

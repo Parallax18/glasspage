@@ -1,6 +1,6 @@
 import { StyleProps } from "@chakra-ui/react";
 
-export interface IComponent {
+export interface ITemplate {
   name?: string;
   id?: string;
   type: string;
@@ -12,10 +12,10 @@ export interface IComponent {
   innerText?: string;
   level: number;
   componentType: string;
-  children?: IComponent[];
+  children?: ITemplate[];
 }
 
-export type IComponentWithIndex = IComponent & { index?: number };
+export type ITemplateWithIndex = ITemplate & { index?: number };
 
 export type ITag =
   | "div"
@@ -57,6 +57,11 @@ export interface IElement {
   eventHandlers?: Record<string, Function>;
   bindings?: Record<string, any>;
   conditionalRender?: () => boolean;
+}
+
+export interface IComponent {
+  name: string;
+  structure: ComponentStruct[];
 }
 
 export interface ComponentStruct {
