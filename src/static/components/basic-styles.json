@@ -4,7 +4,7 @@
     "name": "Card Basic Style",
     "variantName": "default",
     "classes": {
-      "light": "p-5 rounded-lg shadow-md",
+      "light": "p-5 rounded-lg shadow-md bg-gray-300",
       "dark": "p-5 rounded-lg shadow-lg",
       "neutral": "p-5 rounded-lg"
     },
@@ -103,7 +103,7 @@
     "name": "Card Title Style",
     "variantName": "default",
     "classes": {
-      "light": "text-xl font-bold mb-2",
+      "light": "text-xl font-bold mb-2 text-white",
       "dark": "text-xl font-bold mb-2",
       "neutral": "text-xl font-bold mb-2"
     },
@@ -136,7 +136,7 @@
     "name": "Card Body Style",
     "variantName": "default",
     "classes": {
-      "light": "text-sm text-gray-700",
+      "light": "text-sm text-white",
       "dark": "text-sm text-gray-300",
       "neutral": "text-sm"
     },
@@ -229,5 +229,27 @@
       "neutral": "px-4 py-2"
     },
     "isDefault": false
+  },
+  {
+    "id": "64e3a4d2f12b3a0011223355",
+    "name": "Root Style",
+    "variantName": "default",
+    "classes": {
+      "light": "text-center justify-center items-center py-20 md:py-36 gap-8 md:gap-3",
+      "dark": "dark-text-center dark-justify-center dark-items-center dark-py-20 md:dark-py-36 dark-gap-8 md:dark-gap-3",
+      "neutral": "neutral-text-center neutral-justify-center neutral-items-center neutral-py-20 md:neutral-py-36 neutral-gap-8 md:neutral-gap-3"
+    },
+    "isDefault": true
+  },
+  {
+    "id": "64e3a4d2f12b3a0011223356",
+    "name": "Heading 1 Style",
+    "variantName": "default",
+    "classes": {
+      "light": "font-semibold text-2xl sm:text-4xl md:text-6xl leading-tight",
+      "dark": "dark-font-semibold dark-text-2xl sm:dark-text-4xl md:dark-text-6xl dark-leading-tight",
+      "neutral": "neutral-font-semibold neutral-text-2xl sm:neutral-text-4xl md:neutral-text-6xl neutral-leading-tight"
+    },
+    "isDefault": true
   }
 ]

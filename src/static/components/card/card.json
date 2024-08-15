@@ -48,7 +48,7 @@
     "tag": "button",
     "name": "Primary Button",
     "styleEntityId": "648a2c4f47b9c31f57c6e3e6",
-    "innerText": "Primary Action",
+    "innerText": "Primary",
     "level": 2,
     "parentId": "648a2c4f47b9c31f57c6e3c3"
   },
@@ -57,7 +57,7 @@
     "tag": "button",
     "name": "Secondary Button",
     "styleEntityId": "648a2c4f47b9c31f57c6e3e7",
-    "innerText": "Secondary Action",
+    "innerText": "Secondary",
     "level": 2,
     "parentId": "648a2c4f47b9c31f57c6e3c3"
   }

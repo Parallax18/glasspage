@@ -1,0 +1,69 @@
+[
+  {
+    "id": "64e3a4d2f12b3a0011223344",
+    "tag": "div",
+    "name": "CTA with annotation",
+    "styleEntityId": "64e3a4d2f12b3a0011223355",
+    "level": 0,
+    "childrenIds": [
+      "64e3a4d2f12b3a0011223345",
+      "64e3a4d2f12b3a0011223346",
+      "64e3a4d2f12b3a0011223347",
+      "64e3a4d2f12b3a0011223348"
+    ]
+  },
+  {
+    "id": "64e3a4d2f12b3a0011223345",
+    "tag": "h1",
+    "name": "Heading 1",
+    "styleEntityId": "648a2c4f47b9c31f57c6e3e4",
+    "level": 1,
+    "parentId": "64e3a4d2f12b3a0011223344",
+    "innerText": "Do great things,"
+  },
+  {
+    "id": "64e3a4d2f12b3a0011223346",
+    "tag": "span",
+    "name": "Heading Span",
+    "styleEntityId": "64e3a4d2f12b3a0011223357",
+    "level": 1,
+    "parentId": "64e3a4d2f12b3a0011223344",
+    "innerText": "start small"
+  },
+  {
+    "id": "64e3a4d2f12b3a0011223347",
+    "tag": "p",
+    "name": "Description",
+    "styleEntityId": "648a2c4f47b9c31f57c6e3e5",
+    "level": 1,
+    "parentId": "64e3a4d2f12b3a0011223344",
+    "innerText": "Monetize your content by charging your most loyal readers..."
+  },
+  {
+    "id": "64e3a4d2f12b3a0011223348",
+    "tag": "div",
+    "name": "Button Group",
+    "styleEntityId": "648a2c4f47b9c31f57c6e3e3",
+    "level": 1,
+    "parentId": "64e3a4d2f12b3a0011223344",
+    "childrenIds": ["64e3a4d2f12b3a0011223349", "64e3a4d2f12b3a0011223350"]
+  },
+  {
+    "id": "64e3a4d2f12b3a0011223349",
+    "tag": "button",
+    "name": "Primary Button",
+    "styleEntityId": "648a2c4f47b9c31f57c6e502",
+    "level": 2,
+    "parentId": "64e3a4d2f12b3a0011223348",
+    "innerText": "Get started"
+  },
+  {
+    "id": "64e3a4d2f12b3a0011223350",
+    "tag": "button",
+    "name": "Secondary Button",
+    "styleEntityId": "648a2c4f47b9c31f57c6e503",
+    "level": 2,
+    "parentId": "64e3a4d2f12b3a0011223348",
+    "innerText": "Learn more"
+  }
+]

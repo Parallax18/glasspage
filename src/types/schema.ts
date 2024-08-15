@@ -59,7 +59,7 @@ export interface IElement {
   conditionalRender?: () => boolean;
 }
 
-export interface Component {
+export interface ComponentStruct {
   id: string;
   tag: ITag;
   name: string;
