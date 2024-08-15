@@ -1,5 +1,5 @@
 import BasicCard from "./card/card.json";
-import BasicHero from "./card/hero.json";
+import BasicButton from "./card/button.json";
 export { default as BaseComponentStyles } from "./basic-styles.json";
 
-export const componentsJson = [BasicCard];
+export const componentsJson = [BasicButton, BasicCard];

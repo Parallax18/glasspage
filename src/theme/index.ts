@@ -40,6 +40,6 @@ export const theme = extendTheme({
     },
     bgColor: "#060606",
     dark: "#121212",
-    borderColor: "#131313",
+    borderColor: "#252525",
   },
 });

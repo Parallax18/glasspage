@@ -105,7 +105,11 @@ const AddedSections = (props: AddedSectionSidePaneProps) => {
                             </MenuButton>
                             <DragHandleIcon color="white" cursor="grab" />
                           </Flex>
-                          <MenuList bg={"bgColor"} border="1px solid #131313">
+                          <MenuList
+                            bg={"bgColor"}
+                            border="1px solid"
+                            borderColor={"borderColor"}
+                          >
                             <MenuItem
                               bg={"bgColor"}
                               color="lightgrey"
@@ -128,7 +132,8 @@ const AddedSections = (props: AddedSectionSidePaneProps) => {
                               </PopoverTrigger>
                               <PopoverContent
                                 bg={"bgColor"}
-                                border="1px solid #131313"
+                                border="1px solid"
+                                borderColor={"borderColor"}
                                 w="max"
                                 mt={2}
                               >
@@ -147,7 +152,8 @@ const AddedSections = (props: AddedSectionSidePaneProps) => {
                                     <Divider
                                       orientation="vertical"
                                       h={5}
-                                      border="1px solid #131313"
+                                      border="1px solid"
+                                      borderColor={"borderColor"}
                                     />
                                     <IconButton
                                       aria-label="cancel delete action"

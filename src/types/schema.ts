@@ -42,7 +42,7 @@ export type ITag =
 export interface IElement {
   name?: string;
   id?: string;
-  tag: ITag;
+  tag: string;
   thumbnail?: string;
   category?: string;
   styles?: Record<string, string | number>; // Inline HTML styles
@@ -61,7 +61,7 @@ export interface IElement {
 
 export interface ComponentStruct {
   id: string;
-  tag: ITag;
+  tag: string;
   name: string;
   styleEntityId: string;
   level: number;

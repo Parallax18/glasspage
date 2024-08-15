@@ -85,7 +85,6 @@ const EditorDrawer = () => {
           openEditView={(data: IComponentWithIndex) => {
             console.log("from added", { data });
             setCurrentEditorDrawerView("customize");
-            // setCustomizationData(data);
             setFocusedComponent(data);
           }}
         />

@@ -1,26 +1,37 @@
-import { EditorForm } from "@/app/editor/page";
-import { BaseComponentStyles, componentsJson } from "@/static/components";
-import { ComponentStruct } from "@/types/schema";
+import React from "react";
+import { BaseComponentStyles } from "@/static/components";
 import { cn } from "@/utils/cn";
-import { Text } from "@chakra-ui/react";
-import React, { useEffect } from "react";
-import { useForm, useWatch } from "react-hook-form";
+import { ComponentStruct } from "@/types/schema";
 
-// Array of component JSONs
+interface RenderComponentProps {
+  data: ComponentStruct[];
+}
 
 const renderComponent = (
   component: ComponentStruct | undefined,
   json: ComponentStruct[]
-) => {
+): JSX.Element | null => {
   if (!component) return null;
 
-  const Tag = component.tag;
+  const Tag = component.tag as keyof JSX.IntrinsicElements; // Type assertion
+
+  // Validate the tag to ensure it's a valid HTML element or component
+  if (!Tag || typeof Tag !== "string") {
+    console.error(`Invalid tag: ${Tag} for component with id ${component.id}`);
+    return null;
+  }
+
   const classNames = BaseComponentStyles.find(
     (style) => style.id === component.styleEntityId
   )?.classes;
 
-  const children = component.childrenIds?.map((id) =>
+  // Retrieve the children components based on their IDs
+  const childrenComponents = component.childrenIds?.map((id) =>
     json.find((item) => item.id === id)
+  );
+
+  const children = childrenComponents?.map((child) =>
+    renderComponent(child, json)
   );
 
   return (
@@ -32,38 +43,30 @@ const renderComponent = (
       )}
     >
       {component.innerText}
-      {children && children.map((_item) => renderComponent(_item, json))}
+      {children}
     </Tag>
   );
 };
 
-const _RenderComponent = () => {
-  const form = useForm<EditorForm>({
-    defaultValues: { page: [] },
-  });
+const RenderComponent: React.FC<RenderComponentProps> = ({ data }) => {
+  // Flatten the array of arrays into a single array of components
+  const flattenedData = data;
 
-  const onScreenSectionTemplates = useWatch({
-    control: form.control,
-    name: "page",
-  });
+  // Identify and render only the root components (those with no parentId)
+  const rootComponents = flattenedData.filter((item) => !item.parentId);
 
-  console.log({ onScreenSectionTemplates, form: form.getValues() });
+  if (rootComponents.length === 0) {
+    console.warn("No root components found for rendering");
+    return <div>No components to render</div>;
+  }
 
   return (
-    <Text bg={"white"} p={20} color={"red"}>
-      Test
-      {/* {onScreenSectionTemplates.map((json, index) => {
-        const rootComponents = json.filter((item) => !item.parentId);
-        return (
-          <React.Fragment key={index}>
-            {rootComponents.map((component) =>
-              renderComponent(component, json)
-            )}
-          </React.Fragment>
-        );
-      })} */}
-    </Text>
+    <>
+      {rootComponents.map((component) =>
+        renderComponent(component, flattenedData)
+      )}
+    </>
   );
 };
 
-export default _RenderComponent;
+export default RenderComponent;

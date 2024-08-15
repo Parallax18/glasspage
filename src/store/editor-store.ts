@@ -1,4 +1,4 @@
-import { EditorDrawerViews } from "@/components/editor/drawer";
+import { EditorDrawerViews } from "@/components/editor/sidebar";
 import { IComponent, IComponentWithIndex } from "@/types/schema";
 import { create } from "zustand";
 

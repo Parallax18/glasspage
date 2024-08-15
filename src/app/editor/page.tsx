@@ -1,54 +1,40 @@
 "use client";
 
-import EditorDrawer from "@/components/editor/drawer";
-import AddedSections from "@/components/editor/drawer/AddedSections";
+import EditorDrawer from "@/components/editor/sidebar";
 import EmptyScreen from "@/components/editor/EmptyScreen";
 import RenderComponent from "@/components/editor/RenderComponent";
 import { useEditorStore } from "@/store/editor-store";
 import { IComponent } from "@/types/schema";
-import { onDragEnd } from "@/utils/dnd-utils";
 
-import { Box, Button, Flex, Text, useDisclosure } from "@chakra-ui/react";
-import React, { memo, useState } from "react";
-import {
-  DragDropContext,
-  Draggable,
-  Droppable,
-  DropResult,
-} from "react-beautiful-dnd";
-import {
-  Form,
-  FormProvider,
-  useFieldArray,
-  useForm,
-  useWatch,
-} from "react-hook-form";
+import { Box, Flex, Heading } from "@chakra-ui/react";
+import React, { Component, memo } from "react";
+
+import { Form, FormProvider, useForm, useWatch } from "react-hook-form";
+import SideDrawer from "@/components/general/SideDrawer";
+import ComponentEditor from "@/components/editor/component-editor/ComponentEditor";
+import { ComponentStruct, StyleEntity } from "@/types/schema";
+import { componentsJson } from "@/static/components";
 
 export interface EditorForm {
   page: IComponent[];
+  components: ComponentStruct[][];
+  componentStyles: StyleEntity[];
 }
 
 const Editor = () => {
-  const { onOpen } = useEditorStore();
-  const form = useForm<EditorForm>({ defaultValues: { page: [] } });
+  const { onOpen, isOpen, onClose } = useEditorStore();
+  const form = useForm<EditorForm>({
+    defaultValues: {
+      page: [],
+      components: componentsJson,
+      componentStyles: [],
+    },
+  });
 
   const onScreenSectionTemplates = useWatch({
     control: form.control,
     name: "page",
   });
-  const { update } = useFieldArray({
-    control: form.control,
-    name: "page",
-  });
-  const handleDragEnd = (result: DropResult) => {
-    onDragEnd({
-      result,
-      list: onScreenSectionTemplates,
-      callback: (reorderedSections) => {
-        reorderedSections.forEach((item, index) => update(index, item));
-      },
-    });
-  };
 
   return (
     <Box>
@@ -60,48 +46,29 @@ const Editor = () => {
                 <EmptyScreen onOpen={onOpen} />
               ) : (
                 <Box color={"white"}>
-                  <DragDropContext
-                    onDragEnd={(result) => handleDragEnd(result)}
-                  >
-                    <Droppable droppableId="editor">
-                      {(provided) => (
-                        <div
-                          ref={provided.innerRef}
-                          {...provided.droppableProps}
-                        >
-                          {onScreenSectionTemplates.map((section, index) => {
-                            console.log({ section });
-                            const MemoizedComponent = memo(RenderComponent);
+                  {onScreenSectionTemplates.map((section, index) => {
+                    console.log({ section });
+                    const MemoizedComponent = memo(RenderComponent);
 
-                            return (
-                              <MemoizedComponent key={index} {...section} />
-                              // <Draggable
-                              //   key={`k-${index}`}
-                              //   draggableId={`k-${index}`}
-                              //   index={index}
-                              // >
-                              //   {(_provided) => (
-                              //     <div
-                              //       ref={_provided.innerRef}
-                              //       {..._provided.draggableProps}
-                              //       {..._provided.dragHandleProps}
-                              //     >
-
-                              //     </div>
-                              //   )}
-                              // </Draggable>
-                            );
-                          })}
-                          {provided.placeholder}
-                        </div>
-                      )}
-                    </Droppable>
-                  </DragDropContext>
+                    return <MemoizedComponent key={index} {...section} />;
+                  })}
                 </Box>
               )}
             </Box>
 
             <EditorDrawer />
+            <SideDrawer
+              isOpen={isOpen}
+              onClose={onClose}
+              size={"full"}
+              title={
+                <Heading color={"white"} fontSize={"base"}>
+                  Component Name
+                </Heading>
+              }
+            >
+              <ComponentEditor />
+            </SideDrawer>
           </Flex>
         </Form>
       </FormProvider>

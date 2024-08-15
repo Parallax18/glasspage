@@ -7,6 +7,7 @@ import {
   DrawerCloseButton,
   ModalProps,
   DrawerFooter,
+  ThemingProps,
 } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
@@ -16,21 +17,28 @@ export interface SideDrawerProps {
   children: ReactNode;
   footer?: ReactNode;
   title: string | ReactNode;
+  size?: ThemingProps<"Drawer">["size"];
 }
 
 const SideDrawer = (props: SideDrawerProps) => {
-  const { isOpen, onClose, title, children, footer } = props;
+  const { isOpen, onClose, title, children, footer, size } = props;
 
   return (
     <>
-      <Drawer isOpen={isOpen} onClose={onClose} placement={"right"} size="md">
+      <Drawer
+        isOpen={isOpen}
+        onClose={onClose}
+        placement={"left"}
+        size={size ?? "md"}
+      >
         <DrawerContent
           bg={"bgColor"}
-          borderLeft={"1px solid #131313"}
+          borderLeft={"1px solid "}
+          borderColor={"borderColor"}
           w={"50rem"}
           zIndex={99999}
         >
-          <DrawerCloseButton />
+          <DrawerCloseButton color={"lightgrey"} />
           <DrawerHeader>{title}</DrawerHeader>
 
           <DrawerBody position={"relative"}>{children}</DrawerBody>

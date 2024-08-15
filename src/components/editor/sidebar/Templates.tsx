@@ -35,7 +35,8 @@ export const TemplateCategory = ({
           <AccordionButton padding={0}>
             <Flex
               w={"full"}
-              border={"1px solid #131313"}
+              border={"1px solid"}
+              borderColor={"borderColor"}
               padding={3}
               rounded={"base"}
               cursor={"pointer"}
