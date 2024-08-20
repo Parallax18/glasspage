@@ -37,9 +37,14 @@ interface Style {
   value: (val: string) => string;
 }
 
-const StyleEditor = () => {
+const StyleEditor = ({
+  handleUpdateStyles,
+}: {
+  handleUpdateStyles: (style: string) => void;
+}) => {
   const handleChange = (style: Style, val: string) => {
     console.log(style.name, style.value(val));
+    handleUpdateStyles(style.value(val));
   };
   return (
     <Stack spacing={3}>

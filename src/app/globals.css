@@ -10,13 +10,13 @@
   box-sizing: border-box;
 }
 
-/* html {
-  background: #060606;
+/* thin {
+  background: #d11717;
 } */
 
-test {
-  background: #252525;
-}
+/* test {
+  background: #ad1bc0;
+} */
 
 .color-editor .react-colorful {
   height: 240px;

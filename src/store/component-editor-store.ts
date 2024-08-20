@@ -8,6 +8,8 @@ export interface ComponentEditorState {
   toggle: () => void;
   componentInFocus?: IComponent;
   setFocusedComponent: (component: IComponent) => void;
+  componentChildInFocus?: ComponentStruct;
+  setFocusedComponentChild: (child: ComponentStruct) => void;
 }
 
 export const useComponentEditorStore = create<ComponentEditorState>()(
@@ -19,6 +21,10 @@ export const useComponentEditorStore = create<ComponentEditorState>()(
     setFocusedComponent: (component) => {
       console.log("store", { component });
       set(() => ({ componentInFocus: component }));
+    },
+    setFocusedComponentChild: (child) => {
+      console.log("store", { child });
+      set(() => ({ componentChildInFocus: child }));
     },
   })
 );

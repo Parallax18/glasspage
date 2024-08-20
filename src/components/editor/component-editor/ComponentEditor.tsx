@@ -14,16 +14,54 @@ import {
 import React from "react";
 import StyleEditor from "./StyleEditor";
 import RenderComponent from "../_RenderComponent";
-import { useFormContext, useWatch } from "react-hook-form";
+import { useFieldArray, useFormContext, useWatch } from "react-hook-form";
 import { EditorForm } from "@/app/editor/page";
 import { useComponentEditorStore } from "@/store/component-editor-store";
 
 const ComponentEditor = () => {
   const { control } = useFormContext<EditorForm>();
   const addedComponents = useWatch({ control, name: "components" });
-  const { componentInFocus } = useComponentEditorStore();
+  const { update: updateStyles, fields: addedStyles } = useFieldArray({
+    control,
+    name: "componentStyles",
+    keyName: "_id",
+  });
+  const { componentInFocus, componentChildInFocus } = useComponentEditorStore();
 
-  console.log(addedComponents, componentInFocus);
+  console.log(componentChildInFocus, {
+    comp: componentInFocus?.structure.find(
+      (element) => element.id === componentChildInFocus?.id
+    ),
+    styles: BaseComponentStyles.find((style) => {
+      const ID = componentInFocus?.structure.find(
+        (element) => element.id === componentChildInFocus?.id
+      )?.styleEntityId;
+
+      return style.id === ID;
+    }),
+  });
+
+  const handleUpdateStyles = (style: string) => {
+    const index = addedStyles.findIndex((style) => {
+      const ID = componentInFocus?.structure.find(
+        (element) => element.id === componentChildInFocus?.id
+      )?.styleEntityId;
+
+      console.log(ID, style);
+
+      return style.id === ID;
+    });
+    console.log(addedStyles[index]);
+    // const rem = `${style}rem`;
+    updateStyles(index, {
+      ...addedStyles[index],
+      classes: {
+        ...addedStyles[index].classes,
+        light: addedStyles[index].classes.light.concat(`  ${style}`),
+      },
+    });
+  };
+
   return (
     <Flex h={"85dvh"} gap={3} justifyContent={"space-between"}>
       <Center bg={"dark"} h={"full"} w={"50%"}>
@@ -56,7 +94,7 @@ const ComponentEditor = () => {
         />
         <TabPanels h={"full"}>
           <TabPanel>
-            <StyleEditor />
+            <StyleEditor handleUpdateStyles={handleUpdateStyles} />
             {/*TODO:  add a save and cancel button. the save button, formats to proper structure and updates db, the cancel button, formats and save to state */}
           </TabPanel>
           <TabPanel>

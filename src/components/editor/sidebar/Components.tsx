@@ -1,18 +1,39 @@
-import { componentsJson } from "@/static/components";
+import { EditorForm } from "@/app/editor/page";
+import { BaseComponentStyles, componentsJson } from "@/static/components";
 import { useComponentEditorStore } from "@/store/component-editor-store";
-import { ComponentStruct } from "@/types/schema";
+import { ComponentStruct, IComponent, StyleEntity } from "@/types/schema";
 import { DragHandleIcon } from "@chakra-ui/icons";
 import { Flex, Stack, Text } from "@chakra-ui/react";
 import React from "react";
+import { useFieldArray, useFormContext } from "react-hook-form";
 
 const Components = () => {
-  const { onOpen, setFocusedComponent } = useComponentEditorStore();
+  const { onOpen, setFocusedComponent, setFocusedComponentChild } =
+    useComponentEditorStore();
+  const { control } = useFormContext<EditorForm>();
+  const { append } = useFieldArray({ control, name: "componentStyles" });
+  const findStyleAndAddToFormArray = (
+    component: IComponent,
+    focusedElement: ComponentStruct
+  ) => {
+    const styles = BaseComponentStyles.find((style) => {
+      const ID = component?.structure.find(
+        (element) => element.id === focusedElement.id
+      )?.styleEntityId;
+
+      return style.id === ID;
+    });
+
+    append(styles as StyleEntity);
+  };
   return (
     <>
       <Stack spacing={4} w={"full"}>
         {componentsJson.map((component, index) => (
           <Item
             onClick={() => {
+              findStyleAndAddToFormArray(component, component.structure[0]);
+              setFocusedComponentChild(component.structure[0]);
               setFocusedComponent(component);
               onOpen();
             }}
