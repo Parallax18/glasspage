@@ -29,18 +29,18 @@ const ComponentEditor = () => {
   });
   const { componentInFocus, componentChildInFocus } = useComponentEditorStore();
 
-  console.log(componentChildInFocus, {
-    comp: componentInFocus?.structure.find(
-      (element) => element.id === componentChildInFocus?.id
-    ),
-    styles: BaseComponentStyles.find((style) => {
-      const ID = componentInFocus?.structure.find(
-        (element) => element.id === componentChildInFocus?.id
-      )?.styleEntityId;
+  // console.log(componentChildInFocus, {
+  //   comp: componentInFocus?.structure.find(
+  //     (element) => element.id === componentChildInFocus?.id
+  //   ),
+  //   styles: BaseComponentStyles.find((style) => {
+  //     const ID = componentInFocus?.structure.find(
+  //       (element) => element.id === componentChildInFocus?.id
+  //     )?.styleEntityId;
 
-      return style.id === ID;
-    }),
-  });
+  //     return style.id === ID;
+  //   }),
+  // });
 
   const handleUpdateStyles = (style: string) => {
     const index = addedStyles.findIndex((style) => {

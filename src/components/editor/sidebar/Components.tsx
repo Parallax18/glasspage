@@ -16,6 +16,7 @@ const Components = () => {
     component: IComponent,
     focusedElement: ComponentStruct
   ) => {
+    // !todo: this is done multiple times, refactor into a util
     const styles = BaseComponentStyles.find((style) => {
       const ID = component?.structure.find(
         (element) => element.id === focusedElement.id
@@ -24,7 +25,8 @@ const Components = () => {
       return style.id === ID;
     });
 
-    append(styles as StyleEntity);
+    // TODO: fix this!!!!
+    if (styles) append(styles as unknown as StyleEntity);
   };
   return (
     <>
