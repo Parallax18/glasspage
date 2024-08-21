@@ -9,12 +9,12 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TemplatesDrawer from "./Templates";
 import AddedSections from "./AddedSections";
 import { useFieldArray, useFormContext, useWatch } from "react-hook-form";
 
-import { IComponentWithIndex } from "@/types/schema";
+import { ITemplateWithIndex } from "@/types/schema";
 import CustomizeSection from "./CustomizeSection";
 import { BiChevronLeft } from "react-icons/bi";
 import { EditorForm } from "@/app/editor/page";
@@ -49,7 +49,7 @@ const EditorDrawer = () => {
   } = useEditorStore();
 
   const form = useFormContext<EditorForm>();
-  const { append: selectTemplate } = useFieldArray({
+  const { append: selectTemplate, fields: _f } = useFieldArray({
     control: form.control,
     name: "page",
   });
@@ -57,6 +57,11 @@ const EditorDrawer = () => {
     control: form.control,
     name: "page",
   });
+
+  console.log({ fields, _f });
+  useEffect(() => {
+    console.log({ fields, _f });
+  }, [fields, _f]);
 
   const getHeader = () => {
     return (
@@ -77,10 +82,9 @@ const EditorDrawer = () => {
       icon: <RxSection color="white" size={16} />,
       component: (
         <AddedSections
-          openEditView={(data: IComponentWithIndex) => {
+          openEditView={(data: ITemplateWithIndex) => {
             console.log("from added", { data });
             setCurrentEditorDrawerView("customize");
-            // setCustomizationData(data);
             setFocusedComponent(data);
           }}
         />

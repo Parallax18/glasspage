@@ -1,0 +1,413 @@
+[
+  {
+    "id": "648a2c4f47b9c31f57c6e3e1",
+    "name": "Card Basic Style",
+    "variantName": "default",
+    "styles": {
+      "light": {
+        "backgroundColor": "#e2e8f0"
+      },
+      "dark": {
+        "boxShadow": "0 10px 15px rgba(0, 0, 0, 0.2)"
+      },
+      "neutral": {
+        "padding": "1.25rem",
+        "borderRadius": "0.5rem",
+        "boxShadow": "0 4px 6px rgba(0, 0, 0, 0.1)"
+      }
+    },
+    "isDefault": true
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e4f1",
+    "name": "Card Basic Style",
+    "variantName": "outlined",
+    "styles": {
+      "light": {
+        "border": "2px solid #e2e8f0",
+        "boxShadow": "0 1px 3px rgba(0, 0, 0, 0.1)"
+      },
+      "dark": {
+        "border": "2px solid #4a5568",
+        "boxShadow": "0 4px 6px rgba(0, 0, 0, 0.1)"
+      },
+      "neutral": {
+        "padding": "1.25rem",
+        "borderRadius": "0.5rem",
+        "border": "2px solid transparent"
+      }
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e4f2",
+    "name": "Card Basic Style",
+    "variantName": "flat",
+    "styles": {
+      "light": {
+        "backgroundColor": "transparent"
+      },
+      "dark": {
+        "backgroundColor": "transparent"
+      },
+      "neutral": {
+        "padding": "1.25rem",
+        "borderRadius": "0"
+      }
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e3e2",
+    "name": "Card Content Style",
+    "variantName": "default",
+    "styles": {
+      "light": {},
+      "dark": {},
+      "neutral": {
+        "padding": "1rem"
+      }
+    },
+    "isDefault": true
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e4f3",
+    "name": "Card Content Style",
+    "variantName": "compact",
+    "styles": {
+      "light": {},
+      "dark": {},
+      "neutral": {
+        "padding": "0.5rem"
+      }
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e4f4",
+    "name": "Card Content Style",
+    "variantName": "spacious",
+    "styles": {
+      "light": {},
+      "dark": {},
+      "neutral": {
+        "padding": "1.5rem"
+      }
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e3e3",
+    "name": "Card Actions Style",
+    "variantName": "default",
+    "styles": {
+      "light": {},
+      "dark": {},
+      "neutral": {
+        "display": "flex",
+        "justifyContent": "flex-end",
+        "gap": "0.5rem",
+        "marginTop": "1rem"
+      }
+    },
+    "isDefault": true
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e4f5",
+    "name": "Card Actions Style",
+    "variantName": "centered",
+    "styles": {
+      "light": {},
+      "dark": {},
+      "neutral": {
+        "display": "flex",
+        "justifyContent": "center",
+        "gap": "0.5rem",
+        "marginTop": "1rem"
+      }
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e4f6",
+    "name": "Card Actions Style",
+    "variantName": "spaced-between",
+    "styles": {
+      "light": {},
+      "dark": {},
+      "neutral": {
+        "display": "flex",
+        "justifyContent": "space-between",
+        "gap": "0.5rem",
+        "marginTop": "1rem"
+      }
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e4f8",
+    "name": "Card Title Style",
+    "variantName": "uppercase",
+    "styles": {
+      "light": {
+        "textTransform": "uppercase"
+      },
+      "dark": {
+        "textTransform": "uppercase"
+      },
+      "neutral": {
+        "fontSize": "1.25rem",
+        "fontWeight": "bold",
+        "marginBottom": "0.5rem",
+        "textTransform": "uppercase"
+      }
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e4f7",
+    "name": "Card Title Style",
+    "variantName": "italic",
+    "styles": {
+      "light": {
+        "fontStyle": "italic"
+      },
+      "dark": {
+        "fontStyle": "italic"
+      },
+      "neutral": {
+        "fontSize": "1.25rem",
+        "fontWeight": "bold",
+        "marginBottom": "0.5rem",
+        "fontStyle": "italic"
+      }
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e3e5",
+    "name": "Card Body Style",
+    "variantName": "highlighted",
+    "styles": {
+      "light": {
+        "color": "#1d4ed8",
+        "backgroundColor": "#bfdbfe",
+        "padding": "0.5rem",
+        "borderRadius": "0.25rem"
+      },
+      "dark": {
+        "color": "#bfdbfe",
+        "backgroundColor": "#1e40af",
+        "padding": "0.5rem",
+        "borderRadius": "0.25rem"
+      },
+      "neutral": {
+        "backgroundColor": "#bfdbfe",
+        "padding": "0.5rem",
+        "borderRadius": "0.25rem"
+      }
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e4f9",
+    "name": "Card Body Style",
+    "variantName": "muted",
+    "styles": {
+      "light": {
+        "color": "#6b7280"
+      },
+      "dark": {
+        "color": "#d1d5db"
+      },
+      "neutral": {
+        "color": "#6b7280"
+      }
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e3e6",
+    "name": "Primary Button Style",
+    "variantName": "default",
+    "styles": {
+      "light": {
+        "backgroundColor": "#3b82f6",
+        "color": "#ffffff",
+        "padding": "0.5rem 1rem",
+        "borderRadius": "0.25rem"
+      },
+      "dark": {
+        "backgroundColor": "#2563eb",
+        "color": "#ffffff",
+        "padding": "0.5rem 1rem",
+        "borderRadius": "0.25rem"
+      },
+      "neutral": {
+        "padding": "0.5rem 1rem",
+        "borderRadius": "0.25rem"
+      }
+    },
+    "isDefault": true
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e501",
+    "name": "Primary Button Style",
+    "variantName": "outline",
+    "styles": {
+      "light": {
+        "border": "2px solid #3b82f6",
+        "color": "#3b82f6",
+        "backgroundColor": "transparent",
+        "padding": "0.5rem 1rem",
+        "borderRadius": "0.25rem"
+      },
+      "dark": {
+        "border": "2px solid #2563eb",
+        "color": "#2563eb",
+        "backgroundColor": "transparent",
+        "padding": "0.5rem 1rem",
+        "borderRadius": "0.25rem"
+      },
+      "neutral": {
+        "border": "2px solid transparent",
+        "padding": "0.5rem 1rem",
+        "borderRadius": "0.25rem"
+      }
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e502",
+    "name": "Secondary Button Style",
+    "variantName": "default",
+    "styles": {
+      "light": {
+        "backgroundColor": "#6b7280",
+        "color": "#ffffff",
+        "padding": "0.5rem 1rem",
+        "borderRadius": "0.25rem"
+      },
+      "dark": {
+        "backgroundColor": "#4b5563",
+        "color": "#ffffff",
+        "padding": "0.5rem 1rem",
+        "borderRadius": "0.25rem"
+      },
+      "neutral": {
+        "padding": "0.5rem 1rem",
+        "borderRadius": "0.25rem"
+      }
+    },
+    "isDefault": true
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e503",
+    "name": "Secondary Button Style",
+    "variantName": "outline",
+    "styles": {
+      "light": {
+        "border": "2px solid #6b7280",
+        "color": "#6b7280",
+        "backgroundColor": "transparent",
+        "padding": "0.5rem 1rem",
+        "borderRadius": "0.25rem"
+      },
+      "dark": {
+        "border": "2px solid #4b5563",
+        "color": "#4b5563",
+        "backgroundColor": "transparent",
+        "padding": "0.5rem 1rem",
+        "borderRadius": "0.25rem"
+      },
+      "neutral": {
+        "border": "2px solid transparent",
+        "padding": "0.5rem 1rem",
+        "borderRadius": "0.25rem"
+      }
+    },
+    "isDefault": false
+  },
+  {
+    "id": "648a2c4f47b9c31f57c6e504",
+    "name": "Secondary Button Style",
+    "variantName": "ghost",
+    "styles": {
+      "light": {
+        "backgroundColor": "transparent",
+        "color": "#6b7280",
+        "padding": "0.5rem 1rem"
+      },
+      "dark": {
+        "backgroundColor": "transparent",
+        "color": "#4b5563",
+        "padding": "0.5rem 1rem"
+      },
+      "neutral": {
+        "padding": "0.5rem 1rem"
+      }
+    },
+    "isDefault": false
+  },
+  {
+    "id": "64e3a4d2f12b3a0011223355",
+    "name": "Root Style",
+    "variantName": "default",
+    "styles": {
+      "light": {
+        "textAlign": "center",
+        "display": "flex",
+        "justifyContent": "center",
+        "alignItems": "center",
+        "paddingTop": "5rem",
+        "paddingBottom": "5rem",
+        "gap": "2rem"
+      },
+      "dark": {
+        "textAlign": "center",
+        "display": "flex",
+        "justifyContent": "center",
+        "alignItems": "center",
+        "paddingTop": "5rem",
+        "paddingBottom": "5rem",
+        "gap": "2rem"
+      },
+      "neutral": {
+        "textAlign": "center",
+        "display": "flex",
+        "justifyContent": "center",
+        "alignItems": "center",
+        "paddingTop": "5rem",
+        "paddingBottom": "5rem",
+        "gap": "2rem"
+      }
+    },
+    "isDefault": true
+  },
+  {
+    "id": "64e3a4d2f12b3a0011223356",
+    "name": "Heading 1 Style",
+    "variantName": "default",
+    "styles": {
+      "light": {
+        "fontWeight": "600",
+        "fontSize": "1.5rem",
+        "lineHeight": "1.25",
+        "textAlign": "center"
+      },
+      "dark": {
+        "fontWeight": "600",
+        "fontSize": "1.5rem",
+        "lineHeight": "1.25",
+        "textAlign": "center"
+      },
+      "neutral": {
+        "fontWeight": "600",
+        "fontSize": "1.5rem",
+        "lineHeight": "1.25",
+        "textAlign": "center"
+      }
+    },
+    "isDefault": true
+  }
+]

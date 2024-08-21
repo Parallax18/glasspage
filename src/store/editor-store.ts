@@ -1,5 +1,5 @@
-import { EditorDrawerViews } from "@/components/editor/drawer";
-import { IComponent, IComponentWithIndex } from "@/types/schema";
+import { EditorDrawerViews } from "@/components/editor/sidebar";
+import { ITemplate, ITemplateWithIndex } from "@/types/schema";
 import { create } from "zustand";
 
 export interface EditorState {
@@ -7,11 +7,11 @@ export interface EditorState {
   onOpen: () => void;
   onClose: () => void;
   toggle: () => void;
-  componentInFocus?: IComponentWithIndex;
-  setFocusedComponent: (component: IComponent) => void;
+  componentInFocus?: ITemplateWithIndex;
+  setFocusedComponent: (component: ITemplate) => void;
   currentEditorDrawerView: EditorDrawerViews;
   setCurrentEditorDrawerView: (view: EditorDrawerViews) => void;
-  updateFocusedComponent: (itemToUpdate: Partial<IComponentWithIndex>) => void;
+  updateFocusedComponent: (itemToUpdate: Partial<ITemplateWithIndex>) => void;
 }
 
 export const useEditorStore = create<EditorState>()((set) => ({

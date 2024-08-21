@@ -1,6 +1,6 @@
 import { StyleProps } from "@chakra-ui/react";
 
-export interface IComponent {
+export interface ITemplate {
   name?: string;
   id?: string;
   type: string;
@@ -12,7 +12,79 @@ export interface IComponent {
   innerText?: string;
   level: number;
   componentType: string;
-  children?: IComponent[];
+  children?: ITemplate[];
 }
 
-export type IComponentWithIndex = IComponent & { index?: number };
+export type ITemplateWithIndex = ITemplate & { index?: number };
+
+export type ITag =
+  | "div"
+  | "span"
+  | "p"
+  | "button"
+  | "img"
+  | "a"
+  | "input"
+  | "form"
+  | "section"
+  | "header"
+  | "footer"
+  | "nav"
+  | "ul"
+  | "li"
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6";
+
+export interface IElement {
+  name?: string;
+  id?: string;
+  tag: string;
+  thumbnail?: string;
+  category?: string;
+  styles?: Record<string, string | number>; // Inline HTML styles
+  styleClassesLight?: string; // Tailwind class names for light mode
+  styleClassesDark?: string; // Tailwind class names for dark mode
+  attributes?: Record<string, any>;
+  innerText?: string;
+  parentId?: string; // Optional: Reference for context, if needed
+  siblingsIds?: string[]; // Optional: Reference for context, if needed
+  level: number; // Optional: For hierarchy or ordering
+  childrenIds?: string[]; // Optional: Reference for context, if needed
+  eventHandlers?: Record<string, Function>;
+  bindings?: Record<string, any>;
+  conditionalRender?: () => boolean;
+}
+
+export interface IComponent {
+  name: string;
+  structure: ComponentStruct[];
+}
+
+export interface ComponentStruct {
+  id: string;
+  tag: string;
+  name: string;
+  styleEntityId: string;
+  level: number;
+  childrenIds?: string[];
+  parentId?: string;
+  innerText?: string;
+}
+
+export interface StyleEntity {
+  id: string;
+  name: string;
+  variantName: string;
+  styles: Styles;
+  isDefault: boolean;
+}
+
+export interface Styles {
+  light: Record<string, string>;
+  dark: Record<string, string>;
+  neutral: Record<string, string>;
+}

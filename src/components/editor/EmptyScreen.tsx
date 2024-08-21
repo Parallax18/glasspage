@@ -1,3 +1,6 @@
+import { componentsJson } from "@/static/components";
+import { useComponentEditorStore } from "@/store/component-editor-store";
+import { useEditorStore } from "@/store/editor-store";
 import {
   Box,
   Image,
@@ -5,13 +8,13 @@ import {
   Text,
   Button,
   UseDisclosureProps,
+  VStack,
+  Flex,
 } from "@chakra-ui/react";
+import { RxComponent1 } from "react-icons/rx";
 
-interface EmptyScreenProps {
-  onOpen: UseDisclosureProps["onOpen"];
-}
-
-const EmptyScreen = (props: EmptyScreenProps) => {
+const EmptyScreen = () => {
+  const { onOpen, setFocusedComponent } = useComponentEditorStore();
   return (
     <Box
       position="relative"
@@ -35,6 +38,24 @@ const EmptyScreen = (props: EmptyScreenProps) => {
           <Text fontSize="lg" mb="8" color={"lightgray"}>
             Select a template from the left panel to begin
           </Text>
+          <Button
+            bg={"rosybrown"}
+            color={"black"}
+            onClick={() => {
+              // temporary
+              setFocusedComponent(componentsJson[0]);
+              onOpen();
+            }}
+            py={3}
+            fontSize={"sm"}
+            rounded={"none"}
+            w={"full"}
+          >
+            <Flex>
+              {/* <RxComponent1 color="black" size={16} /> */}
+              <Text>Or start with a component</Text>
+            </Flex>
+          </Button>
         </Box>
       </Box>
     </Box>
