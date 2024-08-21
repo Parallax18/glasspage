@@ -1,20 +1,19 @@
 import React from "react";
-import { BaseComponentStyles } from "@/static/components";
-import { cn } from "@/utils/cn";
 import { ComponentStruct, IComponent, StyleEntity } from "@/types/schema";
-import { useFieldArray, useFormContext, useWatch } from "react-hook-form";
+import { FieldArrayWithId } from "react-hook-form";
 import { EditorForm } from "@/app/editor/page";
-import { chakra } from "@chakra-ui/react";
-import { convertStyleToTailwind } from "css-to-tailwind-converter";
 
 interface RenderComponentProps {
   data?: IComponent["structure"];
+  addedStyles:
+    | FieldArrayWithId<EditorForm, "componentStyles", "_id">
+    | undefined;
 }
 
 const renderComponent = (
   component: ComponentStruct | undefined,
   json?: IComponent["structure"],
-  styles?: StyleEntity[]
+  addedStyles?: StyleEntity
 ): JSX.Element | null => {
   if (!component) return null;
 
@@ -28,10 +27,6 @@ const renderComponent = (
     return null;
   }
 
-  const classNames = styles?.find(
-    (style) => style.id === component.styleEntityId
-  )?.classes;
-
   // Retrieve the children components based on their IDs
   const childrenComponents = component.childrenIds?.map((id) =>
     json?.find((item) => item.id === id)
@@ -42,19 +37,17 @@ const renderComponent = (
   );
 
   return (
-    <Tag key={component.id} className={cn(classNames?.light)}>
+    <Tag key={component.id} style={addedStyles?.styles.light}>
       {component.innerText}
       {children}
     </Tag>
   );
 };
 
-const RenderComponent: React.FC<RenderComponentProps> = ({ data }) => {
-  const { control } = useFormContext<EditorForm>();
-  const allStyles = useWatch({ control, name: "componentStyles" });
-
-  // console.log(allStyles, BaseComponentStyles);
-
+const RenderComponent: React.FC<RenderComponentProps> = ({
+  data,
+  addedStyles,
+}) => {
   // Identify and render only the root components (those with no parentId)
   const rootComponents = data?.filter((item) => !item.parentId);
 
@@ -66,7 +59,7 @@ const RenderComponent: React.FC<RenderComponentProps> = ({ data }) => {
   return (
     <>
       {rootComponents?.map((component) =>
-        renderComponent(component, data, allStyles)
+        renderComponent(component, data, addedStyles)
       )}
     </>
   );

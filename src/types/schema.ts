@@ -79,12 +79,12 @@ export interface StyleEntity {
   id: string;
   name: string;
   variantName: string;
-  classes: Classes;
+  styles: Styles;
   isDefault: boolean;
 }
 
-export interface Classes {
-  light: string;
-  dark: string;
-  neutral: string;
+export interface Styles {
+  light: Record<string, string>;
+  dark: Record<string, string>;
+  neutral: Record<string, string>;
 }

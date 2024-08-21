@@ -1,54 +1,42 @@
-import { Button, HStack, Input, Stack, Text } from "@chakra-ui/react";
+import { EditorForm } from "@/app/editor/page";
+import { HStack, Input, Stack, Text } from "@chakra-ui/react";
 import React from "react";
-
-const styles = [
-  {
-    name: "background color",
-    value: (color: string) => `bg-[${color}]`,
-  },
-  {
-    name: "color",
-    value: (color: string) => `text-[${color}]`,
-  },
-  {
-    name: "padding",
-    value: (padding: string) => `p-[${padding}]`,
-  },
-  {
-    name: "padding X-axis",
-    value: (padding: string) => `px-[${padding}]`,
-  },
-  {
-    name: "padding Y-axis",
-    value: (padding: string) => `py-[${padding}]`,
-  },
-  {
-    name: "width",
-    value: (width: string) => `w-[${width}]`,
-  },
-  {
-    name: "height",
-    value: (height: string) => `h-[${height}]`,
-  },
-];
+import { FieldArrayWithId } from "react-hook-form";
 
 interface Style {
   name: string;
   value: (val: string) => string;
 }
 
+interface StyleEditorProps {
+  handleUpdateStyles: (style: string) => void;
+  existingStyles:
+    | FieldArrayWithId<EditorForm, "componentStyles", "_id">
+    | undefined;
+}
+
 const StyleEditor = ({
   handleUpdateStyles,
-}: {
-  handleUpdateStyles: (style: string) => void;
-}) => {
+  existingStyles,
+}: StyleEditorProps) => {
+  console.log({ existingStyles });
   const handleChange = (style: Style, val: string) => {
     console.log(style.name, style.value(val));
-    handleUpdateStyles(style.value(val));
+    // handleUpdateStyles(style.value(val));
   };
+  const mapStyles = () => {
+    if (existingStyles?.styles) {
+      return Object.keys(existingStyles?.styles.light).map((property) => ({
+        name: property.toUpperCase(),
+        property,
+        value: existingStyles?.styles.light[property],
+      }));
+    }
+  };
+  console.log({ styles: mapStyles() });
   return (
     <Stack spacing={3}>
-      {styles.map((style) => (
+      {mapStyles()?.map((style) => (
         <HStack key={style.name}>
           <Text flex={1} color={"white"} textTransform={"capitalize"}>
             {style.name}
@@ -56,7 +44,8 @@ const StyleEditor = ({
           <Input
             color={"white"}
             w={32}
-            onChange={(e) => handleChange(style, e.target.value)}
+            value={style.value}
+            // onChange={(e) => handleChange(style, e.target.value)}
           />
         </HStack>
       ))}

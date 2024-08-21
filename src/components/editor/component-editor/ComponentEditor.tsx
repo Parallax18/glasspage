@@ -17,6 +17,7 @@ import RenderComponent from "../_RenderComponent";
 import { useFieldArray, useFormContext, useWatch } from "react-hook-form";
 import { EditorForm } from "@/app/editor/page";
 import { useComponentEditorStore } from "@/store/component-editor-store";
+import { StyleEntity } from "@/types/schema";
 
 const ComponentEditor = () => {
   const { control } = useFormContext<EditorForm>();
@@ -55,11 +56,27 @@ const ComponentEditor = () => {
     // const rem = `${style}rem`;
     updateStyles(index, {
       ...addedStyles[index],
-      classes: {
-        ...addedStyles[index].classes,
-        light: addedStyles[index].classes.light.concat(`  ${style}`),
+      styles: {
+        ...addedStyles[index].styles,
+        light: {
+          ...addedStyles[index].styles.light,
+        },
+        // addedStyles[index].styles.light.concat(`  ${style}`),
       },
     });
+  };
+
+  const loadStyles = () => {
+    const elementStyle = addedStyles.find((style) => {
+      const ID = componentInFocus?.structure.find(
+        (element) => element.id === componentChildInFocus?.id
+      )?.styleEntityId;
+
+      console.log(ID, style);
+
+      return style.id === ID;
+    });
+    return elementStyle;
   };
 
   return (
@@ -71,6 +88,7 @@ const ComponentEditor = () => {
               (component) => component.name === componentInFocus?.name
             )?.structure
           }
+          addedStyles={loadStyles()}
         />
       </Center>
       <Tabs
@@ -94,7 +112,10 @@ const ComponentEditor = () => {
         />
         <TabPanels h={"full"}>
           <TabPanel>
-            <StyleEditor handleUpdateStyles={handleUpdateStyles} />
+            <StyleEditor
+              handleUpdateStyles={handleUpdateStyles}
+              existingStyles={loadStyles()}
+            />
             {/*TODO:  add a save and cancel button. the save button, formats to proper structure and updates db, the cancel button, formats and save to state */}
           </TabPanel>
           <TabPanel>
